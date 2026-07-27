@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<meta name="description" content="需求预测和库存计划：一个实践者的角度 —— 刘宝红供应链管理著作"/>
+<title>需求预测和库存计划：一个实践者的角度 · 刘宝红</title>
+<style>
+/* SCM Knowledge Atlas — GTM-inspired design language */
+:root{--page:#faf6ee;--card:#fffef9;--ink:#2c2416;--ink-2:#5c5240;--ink-3:#8c8068;--line:#e5dcc8;--shadow:0 1px 3px rgba(60,40,16,.05),0 6px 20px rgba(60,40,16,.04);--radius:16px;--bk1:#1e3a5f;--bk1-soft:#e8eef5;--bk1-light:#f0f4f8;--bk2:#2c5f7c;--bk2-soft:#e4eff5;--bk2-light:#eef5f9;--bk3:#b8453a;--bk3-soft:#fbebe8;--bk3-light:#fdf3f1;--amber:#b8780a;--amber-soft:#fef7e6;--tip:#4a7c59;--tip-soft:#edf5ef;--indigo:#3b4ba8;--indigo-soft:#eceefb}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.78;color:var(--ink);background:var(--page);-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--bk1);z-index:60;transition:width .1s linear}
+.hero{background:linear-gradient(135deg,#1e3a5f 0%,#2c5f7c 40%,#3a6a5e 100%);color:#fff;padding:54px 22px 40px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.1)}
+.hero::before{content:"";position:absolute;right:70px;bottom:-90px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.06)}
+.hero .tag{display:inline-block;font-size:12px;letter-spacing:2px;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:999px;margin-bottom:16px}
+.hero h1{font-size:26px;line-height:1.3;margin:0 0 12px;font-weight:800;letter-spacing:.5px}
+.hero p{font-size:14.5px;opacity:.95;margin:0;max-width:660px;color:#f0f4f8;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.hero .meta{margin-top:18px;font-size:13px;opacity:.9;color:#fff;position:relative;z-index:2;text-shadow:0 1px 2px rgba(0,0,0,.15)}
+.hero .meta a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.6)}
+.hero .meta a:hover{text-decoration-color:#fff}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,254,249,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;gap:6px;overflow-x:auto;padding:10px 14px;scrollbar-width:none;max-width:820px;margin:0 auto}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav a{flex:0 0 auto;font-size:13px;color:var(--ink-2);text-decoration:none;padding:6px 13px;border-radius:999px;white-space:nowrap;border:1px solid transparent;transition:.2s}
+.nav a:hover{background:var(--bk1-light);color:var(--bk1)}
+.nav a.active{background:var(--bk1);color:#fff}
+.wrap{max-width:780px;margin:0 auto;padding:0 18px 80px}
+section{padding-top:40px;scroll-margin-top:56px}
+.ch-head{display:flex;align-items:baseline;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+.ch-num{font-size:13px;font-weight:700;padding:3px 10px;border-radius:8px;flex:0 0 auto}
+.ch-bk1 .ch-num{color:var(--bk1);background:var(--bk1-soft)}.ch-bk2 .ch-num{color:var(--bk2);background:var(--bk2-soft)}.ch-bk3 .ch-num{color:var(--bk3);background:var(--bk3-soft)}
+.ch-head h2{font-size:21px;margin:0;color:var(--ink);font-weight:800;letter-spacing:.3px}
+.ch-source{font-size:12px;color:var(--ink-3);margin-top:4px;width:100%}
+.ch-head h2 .badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;margin-left:8px;vertical-align:middle;letter-spacing:.5px;background:var(--amber-soft);color:var(--amber)}
+h3{font-size:16px;margin:28px 0 8px;color:var(--ink);font-weight:700;display:flex;align-items:center;gap:8px}
+h3::before{content:"";width:4px;height:16px;border-radius:3px;display:inline-block}
+.ch-bk1 h3::before{background:var(--bk1)}.ch-bk2 h3::before{background:var(--bk2)}.ch-bk3 h3::before{background:var(--bk3)}
+h4{font-size:14.5px;margin:18px 0 6px;color:var(--bk1);font-weight:700}
+p{margin:10px 0;font-size:15px;color:var(--ink-2)}strong{color:var(--ink)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 10px;margin:14px 0;box-shadow:var(--shadow)}
+.card h4{margin:0 0 10px}.card p{margin:8px 0}
+.card ol,.card ul{margin:6px 0 14px;padding-left:20px;font-size:14.5px;color:var(--ink-2);line-height:1.8}.card li{margin:6px 0}
+.quote{border-left:4px solid var(--bk1);background:var(--bk1-soft);padding:12px 16px;border-radius:0 12px 12px 0;margin:16px 0;font-size:14.5px;color:var(--ink)}
+.quote strong{display:block;margin-bottom:4px;color:var(--bk1)}.quote.bk1{border-left-color:var(--bk1);background:var(--bk1-light)}
+.quote.bk2{border-left-color:var(--bk2);background:var(--bk2-light)}.quote.bk2 strong{color:var(--bk2)}
+.quote.bk3{border-left-color:var(--bk3);background:var(--bk3-light)}.quote.bk3 strong{color:var(--bk3)}
+.quote.tip{border-left-color:var(--tip);background:var(--tip-soft)}.quote.tip strong{color:var(--tip)}
+.quote.amber{border-left-color:var(--amber);background:var(--amber-soft)}.quote.amber strong{color:var(--amber)}
+.jinquote{font-size:16px;font-weight:600;color:var(--ink);text-align:center;padding:20px 16px;margin:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.8;font-style:italic}
+.table-scroll{overflow-x:auto;margin:14px 0;border-radius:var(--radius);box-shadow:var(--shadow);-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;min-width:480px;background:#fff;font-size:14px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bk1);color:#fff;font-weight:600;font-size:13.5px}
+tr:nth-child(even){background:#fafcfc}td{color:var(--ink-2)}td strong{color:var(--ink)}
+.steps{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+.steps li{counter-increment:step;position:relative;padding:12px 14px 12px 52px;background:var(--card);border:1px solid var(--line);border-radius:12px;margin:8px 0;box-shadow:var(--shadow);font-size:14.5px;color:var(--ink)}
+.steps li::before{content:counter(step);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--bk1);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.steps.bk2 li::before{background:var(--bk2)}.steps.bk3 li::before{background:var(--bk3)}.steps li strong{display:block;margin-bottom:2px;color:var(--bk1)}
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.concept-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.concept-card .cc-icon{font-size:20px;margin-bottom:6px}.concept-card h4{font-size:14px;margin:4px 0;color:var(--ink)}.concept-card p{font-size:13px;margin:4px 0;line-height:1.6}
+.glossary{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:14px 0}
+.term{padding:14px 16px;background:var(--card)}.term .t{font-size:14px;font-weight:700;color:var(--bk1)}.term .d{font-size:13px;color:var(--ink-2);margin-top:4px;line-height:1.6}
+#right-tools{position:fixed;right:18px;bottom:22px;z-index:40;display:flex;flex-direction:column-reverse;align-items:center;gap:10px}
+.tool-btn{width:44px;height:44px;border-radius:50%;border:none;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(30,58,95,.25);transition:all .2s;opacity:0;pointer-events:none}
+.tool-btn.show{opacity:1;pointer-events:auto}.tool-btn:hover{transform:scale(1.1)}
+#btn-toc{background:var(--bk2)}#btn-toc:hover{background:#244e68}
+#btn-search{background:var(--bk1)}#btn-search:hover{background:#162f4d}
+#top{background:var(--bk3)}#top:hover{background:#a03a30}
+.tool-btn svg{width:20px;height:20px;fill:currentColor}
+.panel-overlay{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .25s}
+.panel-overlay.show{opacity:1;pointer-events:auto}
+.panel{position:fixed;top:0;right:0;bottom:0;width:400px;max-width:90vw;z-index:71;background:var(--card);box-shadow:-6px 0 30px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.panel.show{transform:translateX(0)}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line);flex:0 0 auto}
+.panel-header h3{margin:0;font-size:16px;color:var(--ink)}.panel-header h3::before{display:none}
+.panel-close{width:32px;height:32px;border-radius:50%;border:none;background:var(--bk1-soft);color:var(--bk1);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.panel-close:hover{background:var(--bk1);color:#fff}
+.panel-body{flex:1 1 auto;overflow-y:auto;padding:8px 0;-webkit-overflow-scrolling:touch}
+.toc-chapter{font-size:14px;font-weight:700;color:var(--ink);padding:14px 20px 6px 12px}.toc-chapter:first-child{padding-top:8px}
+.toc-item{display:block;padding:9px 20px 9px 12px;font-size:13.5px;color:var(--ink-2);text-decoration:none;cursor:pointer;transition:all .15s;border-left:3px solid transparent;line-height:1.5}
+.toc-item:hover{background:var(--bk1-light);color:var(--bk1)}.toc-item.active{background:var(--bk1-light);color:var(--bk1);border-left-color:var(--bk1);font-weight:600}.toc-item.l2{padding-left:30px;font-size:13px}
+.search-box-sm{display:flex;align-items:center;gap:8px;padding:12px 20px;border-bottom:1px solid var(--line);background:var(--page);flex:0 0 auto}
+.search-input{flex:1;border:1.5px solid var(--line);border-radius:10px;padding:10px 14px;font-size:14px;outline:none;background:#fff;transition:border-color .2s}
+.search-input:focus{border-color:var(--bk1)}
+.search-nav{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--ink-2);flex:0 0 auto}
+.search-nav-btn{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--ink-2);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.search-nav-btn:hover:not(:disabled){border-color:var(--bk1);color:var(--bk1);background:var(--bk1-light)}
+.search-nav-btn:disabled{opacity:.35;cursor:default}.search-count{min-width:44px;text-align:center}
+.search-clear{width:28px;height:28px;border-radius:50%;border:none;background:transparent;color:var(--ink-2);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.search-clear:hover{background:var(--bk1-soft);color:var(--bk1)}
+mark.search-hit{background:#fde68a;color:var(--ink);border-radius:2px;padding:1px 2px}
+mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;padding:2px 3px}
+.search-result-item{cursor:pointer!important}
+#resume-wrap{position:fixed;bottom:80px;left:50%;z-index:45;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;gap:8px;white-space:nowrap}
+#resume-wrap.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+#resume-badge{background:var(--bk1);color:#fff;padding:10px 18px 10px 16px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(30,58,95,.35);transition:background .2s,transform .2s,box-shadow .2s;display:flex;align-items:center;gap:7px}
+#resume-badge:hover{background:#162f4d;transform:translateY(-2px);box-shadow:0 6px 20px rgba(30,58,95,.45)}
+#resume-ignore{flex:0 0 auto;width:28px;height:28px;border-radius:50%;border:none;background:var(--bk1);color:#fff;font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:0;transform:scale(.8);box-shadow:0 2px 8px rgba(30,58,95,.25)}
+#resume-wrap.show #resume-ignore{opacity:1;transform:scale(1);transition-delay:.2s}
+#resume-ignore:hover{background:#162f4d;transform:scale(1.08)}
+.footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);line-height:2;text-align:center}
+.footer a{color:var(--bk1);text-decoration:none}.footer a:hover{text-decoration:underline}
+.hidden-by-search{display:none!important}
+@media(max-width:520px){.hero h1{font-size:22px}.hero p{font-size:13px}.wrap{padding:0 14px 70px}h2{font-size:19px}h3{font-size:15px}p{font-size:13.5px}.concept-grid{grid-template-columns:1fr}.glossary{grid-template-columns:1fr}.jinquote{font-size:14px}.nav-inner{padding:8px 10px}.nav a{font-size:12px;padding:5px 10px}.tool-btn{width:40px;height:40px}}
+
+
+/* Back to main link */
+.back-link {
+  position: fixed; top: 14px; left: 18px; z-index: 55;
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,254,249,.92); backdrop-filter: blur(10px);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 16px; font-size: 13px; font-weight: 600;
+  color: var(--bk1); text-decoration: none;
+  box-shadow: var(--shadow); transition: all .2s;
+}
+.back-link:hover { background: var(--bk1); color: #fff; transform: translateX(-2px); }
+.back-link svg { width: 16px; height: 16px; fill: currentColor; }
+
+/* Book page hero */
+.book-hero {
+  background: linear-gradient(135deg,#1e3a5f 0%,#2c5f7c 40%,#3a6a5e 100%);
+  color: #fff; padding: 48px 22px 36px; position: relative; overflow: hidden;
+}
+.book-hero::after { content:""; position:absolute; right:-40px; top:-40px; width:160px; height:160px; border-radius:50%; background:rgba(255,255,255,.08) }
+.book-hero .tag { display:inline-block; font-size:11px; letter-spacing:2px; background:rgba(255,255,255,.15); padding:3px 10px; border-radius:999px; margin-bottom:12px }
+.book-hero h1 { font-size:24px; line-height:1.3; margin:0 0 8px; font-weight:800 }
+.book-hero p { font-size:14px; opacity:.9; margin:4px 0; max-width:660px }
+.book-hero .edit { font-size:12px; opacity:.7; margin-top:8px }
+.book-main { max-width: 780px; margin: 0 auto; padding: 0 18px 80px; }
+.book-main h2 { font-size:20px; font-weight:800; color:var(--ink); margin:36px 0 12px; display:flex; align-items:center; gap:8px }
+.book-main h2::before { content:""; width:4px; height:18px; background:var(--bk1); border-radius:3px; display:inline-block }
+.book-main h3 { font-size:15px; font-weight:700; color:var(--ink); margin:20px 0 8px }
+.book-main p { font-size:14.5px; color:var(--ink-2); margin:8px 0; line-height:1.78 }
+.book-toc { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:16px 20px; margin:16px 0; box-shadow:var(--shadow) }
+.book-toc ol { margin:8px 0; padding-left:24px; font-size:14px; color:var(--ink-2); line-height:1.9 }
+.book-toc li { margin:2px 0 }
+.highlight-box { background:var(--bk1-light); border-left:4px solid var(--bk1); padding:14px 18px; border-radius:0 12px 12px 0; margin:16px 0; font-size:14px; color:var(--ink); line-height:1.8 }
+
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+
+<a href="index.html" class="back-link">
+  <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+  回到主线
+</a>
+
+
+<header class="book-hero">
+  <div class="tag">刘宝红 · 供应链实践者丛书</div>
+  <h1>需求预测和库存计划：一个实践者的角度</h1>
+  <p>第2版（2025）<br>计划是供应链的引擎。本书聚焦计划的"<strong>三分技术</strong>"，与《三道防线》的"七分管理"互补。<strong>所有案例都在Excel中完成</strong>——面向没有专业计划软件的绝大多数企业。</p>
+  <p class="edit">作者：刘宝红（Bob Liu）<br>出版社：机械工业出版社 | ISBN: 978-7-111-78435-7 · 339页</p>
+</header>
+
+<div class="book-main">
+  <h2>本书概述</h2>
+  <div class="highlight-box"><strong>核心方法论</strong><br>"避免大错，靠人脑；追求精益，靠电脑"——高度不确定的需求用德尔菲法群策群力；重复性高的需求清洗历史数据、选择预测模型优化。</div><div class="highlight-box"><strong>实用价值</strong><br>本书不是预测理论专著，而是为实践者量身打造的应用书。所有案例在Excel中完成。从移动平均、指数平滑到霍尔特-温特季节模型，再到安全库存计算和再订货点设置，手把手教你做计划。</div><div class="highlight-box"><strong>关键哲学</strong><br>"寻找更优，而不是最优的解决方案"——预测模型优化要提防过度拟合。"有时候，不预测就是最好的预测。"</div>
+  
+  <div class="book-toc"><h3>📖 完整目录</h3><ol><li style="font-weight:600;color:var(--ink);margin-top:8px">引言 计划是供应链的引擎（从"七分管理"到"三分技术"）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第1章 数据是计划的基础（需求历史定义、数据清洗、极端值处理）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第2章 移动平均法和简单指数平滑法</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第3章 评估预测方法的优劣（准确度、系统性偏差）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第4章 趋势的预测（霍尔特法、线性回归）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第5章 季节性需求的预测（霍尔特-温特法、三种方式对比案例）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第6章 一家电商的预测方法优化（中心仓择优案例）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第7章 高度不确定性下如何预测——德尔菲法</li><li style="margin-left:16px;list-style-type:circle">核心方法："瓶子里有多少颗糖"游戏→群策群力避免大错</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第8章 新品预测：尽量做准，尽快纠偏</li><li style="margin-left:16px;list-style-type:circle">新品开发期滚动纠偏、新品预售期滚动纠偏</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第9章 预测不准，设置安全库存来应对</li><li style="margin-left:16px;list-style-type:circle">三种不确定性组合（仅需求/仅供应/两者都不确定）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第10章 再订货点和再订货机制（定量/定期补货、VMI水位设置）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第11章 长尾产品：库存计划的终极挑战（泊松分布模拟）</li></ol></div>
+  
+  <h2>阅读建议</h2>
+  <p>本书是刘宝红"供应链实践者丛书"的核心组成部分。建议与系列其他著作配合阅读，形成从全局观→计划→采购→轻资产→技术深化→职业成长的完整知识体系。更多内容请返回<a href="index.html" style="color:var(--bk1)">主线知识图谱</a>查看各书精华的综合整理。</p>
+  
+  <p style="margin-top:24px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)">
+    本页面为书籍目录与概要介绍。如需深入学习，建议购买正版书籍。本章节内容仅供个人学习参考。
+  </p>
+</div>
+
+
+<div id="right-tools">
+  <button id="top" class="tool-btn show" title="回到顶部">
+    <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+  <button id="btn-search" class="tool-btn show" title="搜索 (Ctrl+K)">
+    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+  </button>
+  <button id="btn-toc" class="tool-btn show" title="目录">
+    <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+  </button>
+</div>
+
+
+<div class="panel-overlay" id="toc-overlay"></div>
+<div class="panel" id="toc-panel">
+  <div class="panel-header"><h3>📑 本书目录</h3><button class="panel-close" id="toc-close">✕</button></div>
+  <div class="panel-body"><div id="toc-list"></div></div>
+</div>
+<div class="panel-overlay" id="search-overlay"></div>
+<div class="panel" id="search-panel">
+  <div class="panel-header"><h3>🔍 内容查找</h3><button class="panel-close" id="search-close">✕</button></div>
+  <div class="search-box-sm">
+    <input type="text" class="search-input" id="search-input" placeholder="搜索本书内容...">
+    <div class="search-nav">
+      <button class="search-nav-btn" id="search-prev" disabled>▲</button>
+      <span class="search-count" id="search-count">0/0</span>
+      <button class="search-nav-btn" id="search-next" disabled>▼</button>
+    </div>
+    <button class="search-clear" id="search-clear">✕</button>
+  </div>
+  <div class="panel-body" id="search-results"></div>
+</div>
+
+
+<script>
+(function(){var b=document.getElementById('progress');window.addEventListener('scroll',function(){var s=window.scrollY||document.documentElement.scrollTop,d=document.documentElement.scrollHeight-window.innerHeight;b.style.width=d?(s/d*100)+'%':'0%'});})();
+(function(){var B=document.querySelectorAll('.tool-btn');window.addEventListener('scroll',function(){var s=window.scrollY||document.documentElement.scrollTop;B.forEach(function(b){b.classList.toggle('show',s>200);});});})();
+(function(){document.getElementById('top').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});})();
+(function(){var o=document.getElementById('toc-overlay'),pn=document.getElementById('toc-panel'),pc=document.getElementById('toc-close');function close(){o.classList.remove('show');pn.classList.remove('show');}pc.addEventListener('click',close);o.addEventListener('click',close);document.getElementById('btn-toc').addEventListener('click',function(){o.classList.add('show');pn.classList.add('show');});})();
+(function(){var o=document.getElementById('search-overlay'),pn=document.getElementById('search-panel'),pc=document.getElementById('search-close'),inp=document.getElementById('search-input'),pr=document.getElementById('search-prev'),nx=document.getElementById('search-next'),cnt=document.getElementById('search-count'),clr=document.getElementById('search-clear'),res=document.getElementById('search-results');var hits=[],ci=-1,marks=[];function close(){o.classList.remove('show');pn.classList.remove('show');clearM();inp.value='';res.innerHTML='';hits=[];ci=-1;updN();}pc.addEventListener('click',close);o.addEventListener('click',close);document.getElementById('btn-search').addEventListener('click',function(){o.classList.add('show');pn.classList.add('show');setTimeout(function(){inp.focus();},300);});function clearM(){marks.forEach(function(m){var p=m.parentNode;if(p){p.replaceChild(document.createTextNode(m.textContent),m);p.normalize();}});marks=[];}function doSearch(q){clearM();hits=[];ci=-1;marks=[];if(!q||q.trim().length<2){res.innerHTML=q?'<p style=padding:20px;color:var(--ink-2);font-size:14px>请输入至少2个字符</p>':'';updN();return;}var ql=q.trim().toLowerCase(),body=document.querySelector('.book-main');if(!body){updN();return;}var w=document.createTreeWalker(body,NodeFilter.SHOW_TEXT,null,false),tns=[];while(w.nextNode()){var n=w.currentNode;if(n.parentElement&&!['SCRIPT','STYLE','NOSCRIPT','SVG'].includes(n.parentElement.tagName)&&!n.parentElement.closest('#search-panel')){tns.push(n);}}tns.forEach(function(node){var t=node.textContent.toLowerCase(),i=t.indexOf(ql);if(i!==-1){var ctx=node.textContent.substring(Math.max(0,i-30),i+ql.length+30);hits.push({node:node,ctx:ctx,idx:i});}});hits.forEach(function(hit){var node=hit.node,t=node.textContent,ql2=ql.length,si=t.toLowerCase().indexOf(ql);if(si!==-1){var be=t.substring(0,si),ma=t.substring(si,si+ql2),af=t.substring(si+ql2),mk=document.createElement('mark');mk.className='search-hit';mk.textContent=ma;var p=node.parentNode;p.replaceChild(document.createTextNode(af),node);p.insertBefore(mk,p.childNodes[p.childNodes.length-1]);p.insertBefore(document.createTextNode(be),mk);marks.push(mk);hit.mark=mk;}});if(hits.length===0){res.innerHTML='<p style=padding:20px;color:var(--ink-2);font-size:14px>未找到匹配结果</p>';}else{var html='<div style=padding:8px>';hits.forEach(function(hit,i){html+='<div class="toc-item search-result-item" data-i='+i+' style=font-size:13px;padding:10px 20px;border-bottom:1px solid var(--line)>';html+='<div style=color:var(--ink-2);font-size:12.5px;line-height:1.5>...'+esc(hit.ctx)+'...</div></div>';});html+='</div>';res.innerHTML=html;res.querySelectorAll('.search-result-item').forEach(function(item){item.addEventListener('click',function(){navTo(parseInt(this.getAttribute('data-i')));});});}updN();}function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}function navTo(idx){if(idx<0||idx>=hits.length)return;if(ci>=0&&ci<hits.length&&hits[ci].mark)hits[ci].mark.classList.remove('search-hit-current');ci=idx;var hit=hits[ci];if(hit.mark){hit.mark.classList.add('search-hit-current');hit.mark.scrollIntoView({behavior:'smooth',block:'center'});}updN();}function updN(){var t=hits.length,c=ci>=0?ci+1:0;cnt.textContent=t>0?c+'/'+t:'0/0';pr.disabled=t===0||ci<=0;nx.disabled=t===0||ci>=t-1;}var st;inp.addEventListener('input',function(){clearTimeout(st);st=setTimeout(function(){doSearch(inp.value);},300);});inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();if(hits.length>0)navTo(ci<0?0:ci);}});pr.addEventListener('click',function(){if(ci>0)navTo(ci-1);});nx.addEventListener('click',function(){if(ci<hits.length-1)navTo(ci+1);});clr.addEventListener('click',function(){inp.value='';doSearch('');inp.focus();});document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();document.getElementById('btn-search').click();}});})();
+</script>
+</body>
+</html>
