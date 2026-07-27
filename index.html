@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
+<meta name="description" content="刘宝红供应链管理知识图谱 —— 系统化学习手册，涵盖供应链全景图、三道防线、采购与供应商管理、降本增效等核心知识体系"/>
+<title>刘宝红 · 供应链管理知识图谱</title>
+<style>
+/* ===== Design Tokens ===== */
+:root {
+    --page: #faf6ee;
+    --card: #fffef9;
+    --ink: #2c2416;
+    --ink-2: #5c5240;
+    --ink-3: #8c8068;
+    --line: #e5dcc8;
+    --shadow: 0 1px 3px rgba(60,40,16,.05), 0 6px 20px rgba(60,40,16,.04);
+    --radius: 14px;
+
+    /* Book 1: 采购与供应链管理 */
+    --bk1: #1e3a5f;
+    --bk1-soft: #e8eef5;
+    --bk1-light: #f0f4f8;
+
+    /* Book 2: 高成本高库存重资产 */
+    --bk2: #2c5f7c;
+    --bk2-soft: #e4eff5;
+    --bk2-light: #eef5f9;
+
+    /* Book 3: 三道防线 */
+    --bk3: #b8453a;
+    --bk3-soft: #fbebe8;
+    --bk3-light: #fdf3f1;
+
+    /* Utility */
+    --amber: #b8780a;
+    --amber-soft: #fef7e6;
+    --tip: #4a7c59;
+    --tip-soft: #edf5ef;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:56px}
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    line-height:1.82;color:var(--ink);background:var(--page);
+    -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+}
+
+/* ===== Progress Bar ===== */
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--bk1);z-index:100;transition:width .1s linear}
+
+/* ===== Hero ===== */
+.hero{
+    background:linear-gradient(160deg,#f5efe0 0%,#ede4d3 40%,#e8dcc8 100%);
+    padding:48px 18px 36px;text-align:center;border-bottom:1px solid var(--line);
+}
+.hero h1{font-size:28px;font-weight:700;color:var(--ink);letter-spacing:.02em}
+.hero .sub{font-size:15px;color:var(--ink-2);margin-top:8px;line-height:1.6}
+.hero .meta{font-size:13px;color:var(--ink-3);margin-top:12px}
+.hero .meta a{color:var(--bk1);text-decoration:none}
+.hero .meta a:hover{text-decoration:underline}
+
+/* ===== Navigation ===== */
+.nav{position:sticky;top:0;z-index:50;background:rgba(250,246,238,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;gap:4px;overflow-x:auto;padding:10px 14px;scrollbar-width:none;max-width:840px;margin:0 auto}
+.nav-inner::-webkit-scrollbar{display:none}
+.nav-inner a{
+    flex:0 0 auto;white-space:nowrap;padding:6px 12px;border-radius:20px;
+    font-size:13px;font-weight:500;color:var(--ink-2);text-decoration:none;
+    transition:all .2s;border:1px solid transparent;
+}
+.nav-inner a:hover{background:rgba(30,58,95,.06);color:var(--bk1)}
+.nav-inner a.active{background:var(--bk1);color:#fff;border-color:var(--bk1)}
+
+/* ===== Search ===== */
+.search-wrap{max-width:780px;margin:20px auto 0;padding:0 18px}
+.search-box{
+    display:flex;align-items:center;gap:10px;background:var(--card);
+    border:1px solid var(--line);border-radius:28px;padding:10px 18px;
+    box-shadow:var(--shadow);transition:border-color .2s;
+}
+.search-box:focus-within{border-color:var(--bk1)}
+.search-box input{
+    flex:1;border:none;outline:none;font-size:14px;color:var(--ink);background:transparent;
+    font-family:inherit;
+}
+.search-box input::placeholder{color:var(--ink-3)}
+.search-box .search-icon{color:var(--ink-3);font-size:16px;flex-shrink:0}
+.search-info{text-align:center;font-size:12px;color:var(--ink-3);margin-top:6px;display:none}
+.search-info.show{display:block}
+
+/* ===== Content Container ===== */
+.wrap{max-width:780px;margin:0 auto;padding:0 18px 80px}
+
+/* ===== Section ===== */
+section{scroll-margin-top:56px;padding-top:36px}
+section:first-of-type{padding-top:16px}
+
+/* ===== Chapter Header ===== */
+.ch-head{margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid var(--line)}
+.ch-num{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin-bottom:6px}
+.ch-head h2{font-size:23px;font-weight:700;color:var(--ink);line-height:1.4}
+.ch-head h2 .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.badge-new{background:var(--bk3-soft);color:var(--bk3)}
+.badge-must{background:var(--amber-soft);color:var(--amber)}
+.ch-head .ch-source{font-size:12px;color:var(--ink-3);margin-top:6px}
+
+/* Book-specific chapter accents */
+.ch-bk1 .ch-head{border-bottom-color:var(--bk1)}
+.ch-bk1 .ch-num{color:var(--bk1)}
+.ch-bk2 .ch-head{border-bottom-color:var(--bk2)}
+.ch-bk2 .ch-num{color:var(--bk2)}
+.ch-bk3 .ch-head{border-bottom-color:var(--bk3)}
+.ch-bk3 .ch-num{color:var(--bk3)}
+
+/* ===== Content Elements ===== */
+h3{font-size:18px;font-weight:650;color:var(--ink);margin:28px 0 12px;line-height:1.5}
+h4{font-size:15.5px;font-weight:600;color:var(--ink-2);margin:20px 0 8px}
+p{margin:10px 0;font-size:14.5px;color:var(--ink-2)}
+strong{color:var(--ink)}
+
+/* Cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:16px 0;box-shadow:var(--shadow)}
+.card h4{margin-top:0}
+.card p{margin:8px 0}
+
+/* Quote / Callout boxes */
+.quote{padding:14px 18px;border-radius:var(--radius);margin:14px 0;font-size:14px;line-height:1.72;color:var(--ink-2)}
+.quote strong{display:block;margin-bottom:4px}
+.quote.bk1{background:var(--bk1-light);border-left:4px solid var(--bk1)}
+.quote.bk2{background:var(--bk2-light);border-left:4px solid var(--bk2)}
+.quote.bk3{background:var(--bk3-light);border-left:4px solid var(--bk3)}
+.quote.tip{background:var(--tip-soft);border-left:4px solid var(--tip)}
+.quote.tip strong{color:var(--tip)}
+.quote.amber{background:var(--amber-soft);border-left:4px solid var(--amber)}
+
+/* Concept link */
+.xref{display:inline-flex;align-items:center;gap:4px;font-size:13px;color:var(--bk1);text-decoration:none;font-weight:500;margin:0 2px}
+.xref:hover{text-decoration:underline}
+
+/* Table */
+.table-scroll{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:var(--bk1-light);font-weight:600;color:var(--ink);font-size:13px;white-space:nowrap}
+td{color:var(--ink-2)}
+tr:last-child td{border-bottom:none}
+
+/* Steps / Process */
+.steps{counter-reset:step;list-style:none;padding:0;margin:14px 0}
+.steps li{counter-increment:step;padding:12px 14px 12px 48px;position:relative;margin:6px 0;background:var(--card);border-radius:10px;border:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+.steps li::before{content:counter(step);position:absolute;left:14px;top:12px;width:24px;height:24px;border-radius:50%;background:var(--bk1);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps.bk3 li::before{background:var(--bk3)}
+.steps.bk2 li::before{background:var(--bk2)}
+.steps li strong{display:block;margin-bottom:2px}
+
+/* Concept card grid */
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.concept-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.concept-card .cc-icon{font-size:20px;margin-bottom:6px}
+.concept-card h4{font-size:14px;margin:4px 0;color:var(--ink)}
+.concept-card p{font-size:13px;color:var(--ink-2);margin:4px 0;line-height:1.6}
+
+/* Glossary */
+.glossary{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:14px 0}
+.term{padding:14px 16px;background:var(--card)}
+.term .t{font-weight:600;font-size:14px;color:var(--ink)}
+.term .d{font-size:13px;color:var(--ink-2);margin-top:4px;line-height:1.6}
+
+/* Formula / Dark box */
+.formula{background:#1e2a1e;color:#c8e6c0;font-family:"SF Mono",Consolas,monospace;font-size:13px;padding:16px 20px;border-radius:12px;margin:14px 0;line-height:1.8}
+
+/* Separator */
+hr{border:none;border-top:1px solid var(--line);margin:32px 0}
+
+/* Footer */
+.footer{text-align:center;padding:40px 18px;color:var(--ink-3);font-size:13px;line-height:2}
+.footer a{color:var(--bk1);text-decoration:none}
+.footer a:hover{text-decoration:underline}
+
+/* Back to top */
+#top{position:fixed;bottom:28px;right:28px;width:42px;height:42px;border-radius:50%;background:var(--bk1);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:60;box-shadow:0 2px 12px rgba(30,58,95,.25)}
+#top.show{opacity:1;pointer-events:auto}
+
+/* Resume badge */
+#resume-badge{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--line);border-radius:24px;padding:8px 18px;font-size:13px;color:var(--ink-2);cursor:pointer;z-index:55;box-shadow:var(--shadow);display:none;white-space:nowrap}
+#resume-badge.show{display:block;animation:bounce .6s ease}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px)}}
+
+/* Responsive */
+@media(max-width:520px){
+    .hero h1{font-size:22px}
+    .hero .sub{font-size:13px}
+    .wrap{padding:0 14px 70px}
+    .ch-head h2{font-size:20px}
+    h3{font-size:16px}
+    p{font-size:13.5px}
+    .concept-grid{grid-template-columns:1fr}
+    .glossary{grid-template-columns:1fr}
+    .nav-inner{padding:8px 10px}
+    .nav-inner a{font-size:12px;padding:5px 10px}
+    .table-scroll table{min-width:400px}
+    th,td{padding:8px 10px;font-size:13px}
+}
+
+/* Hidden (search filter) */
+.hidden-by-search{display:none!important}
+
+/* Highlight search matches */
+.search-highlight{background:#fde68a;border-radius:2px;padding:0 1px}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header class="hero">
+    <h1>刘宝红 · 供应链管理知识图谱</h1>
+    <p class="sub">从"供应链到底是什么"讲起，逐步拆解三道防线、降本三台阶、采购五阶段<br>用真实案例和核心模型串起供应链管理的完整知识体系</p>
+    <p class="meta">
+        内容来源 <a href="https://scm-blog.com" target="_blank">scm-blog.com</a> 刘宝红公开文章 · 
+        <a href="https://github.com/ChenJJ-DZL/SCM-Knowledge-Atlas" target="_blank">GitHub</a>
+    </p>
+</header>
+
+<nav class="nav" id="nav-bar">
+    <div class="nav-inner" id="nav">
+        <a href="#guide">导读</a>
+        <a href="#c1" style="border-left:3px solid var(--bk1);padding-left:9px">供应链全景</a>
+        <a href="#c2" style="border-left:3px solid var(--bk1);padding-left:9px">采购五阶段</a>
+        <a href="#c3" style="border-left:3px solid var(--bk2);padding-left:9px">前端防杂</a>
+        <a href="#c4" style="border-left:3px solid var(--bk2);padding-left:9px">后端减重</a>
+        <a href="#c5" style="border-left:3px solid var(--bk2);padding-left:9px">中间治乱</a>
+        <a href="#c6" style="border-left:3px solid var(--bk3);padding-left:9px">防线一·预测</a>
+        <a href="#c7" style="border-left:3px solid var(--bk3);padding-left:9px">防线二三·库存执行</a>
+        <a href="#c8">速查工具包</a>
+    </div>
+</nav>
+
+<div class="search-wrap">
+    <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="搜索概念、术语、文章关键词..." autocomplete="off">
+    </div>
+    <div class="search-info" id="search-info"></div>
+</div>
+
+<div class="wrap">
+
+<!-- ===== 导读 ===== -->
+<section id="guide">
+<div class="ch-head">
+    <span class="ch-num">学前导读</span>
+    <h2>这本书该怎么读？</h2>
+</div>
+<div class="card">
+    <h4>📖 适用人群</h4>
+    <p>刚接触供应链管理的职场新人、准备转岗到供应链/采购/计划的同学、希望系统梳理供应链知识的从业者，以及对供应链管理感兴趣的学生和创业者。</p>
+</div>
+<div class="card">
+    <h4>🗺️ 学习路径（8站渐进式）</h4>
+    <p>第1站搞懂供应链全景 → 第2站理解采购五阶段 → 第3-5站掌握"防杂减重治乱"破局框架 → 第6-7站深入三道防线 → 第8站速查工具包</p>
+</div>
+<div class="card">
+    <h4>📌 阅读约定</h4>
+    <p><span class="badge badge-must">新人必读</span> 零基础必须掌握的硬概念<br>
+    <span class="badge badge-new">案例</span> 真实企业案例，帮助理解理论如何落地<br>
+    🔗 关联知识点：提示模块之间的对应关系，可来回对照</p>
+</div>
+<div class="card">
+    <h4>📚 核心参考著作</h4>
+    <table>
+        <tr><th>书名</th><th>版本</th><th>标记色</th></tr>
+        <tr><td>《采购与供应链管理：一个实践者的角度》</td><td>第4版(2024)</td><td style="color:var(--bk1)">■ 藏蓝</td></tr>
+        <tr><td>《供应链管理：高成本、高库存、重资产的解决方案》</td><td>第2版(2023)</td><td style="color:var(--bk2)">■ 石板蓝</td></tr>
+        <tr><td>《供应链的三道防线：需求预测、库存计划、供应链执行》</td><td>第2版(2022)</td><td style="color:var(--bk3)">■ 陶土红</td></tr>
+    </table>
+</div>
+<p style="font-size:13px;color:var(--ink-3);margin-top:16px">
+    ⚠️ 本资料综合自刘宝红"供应链管理专栏"（scm-blog.com）公开文章，做系统性梳理，仅供个人学习参考。如需深入学习，建议购买正版书籍。
+</p>
+</section>
+
+<!-- ===== 第1站：供应链全景图 ===== -->
+<section id="c1" class="ch-bk1">
+<div class="ch-head">
+    <span class="ch-num">第1站</span>
+    <h2>供应链全景图：到底什么是供应链管理 <span class="badge badge-must">新人必读</span></h2>
+    <p class="ch-source">📗 来源：《采购与供应链管理：一个实践者的角度》第4版 | scm-blog.com</p>
+</div>
+
+<h3>供应链管理的本质</h3>
+<p>供应链管理就是<strong>产品流、信息流和资金流的三流集成</strong>。企业有三大核心职能：设计开发个好产品、营销卖个好价钱、供应链以合适的成本和速度采购和生产出来。</p>
+
+<div class="quote bk1">
+    <strong>🗣️ 刘宝红说</strong>
+    "供应链管理是美国'落后挨打'的产物。20世纪80年代，美国企业被日本企业打得满地找牙，于是坐下来研究日本企业为什么厉害。研究发现，日本企业的核心竞争力不是设计，也不是营销，而是供应链管理。"
+</div>
+
+<h3>供应链的构成：采购 + 生产 + 物流 + 计划</h3>
+<div class="concept-grid">
+    <div class="concept-card">
+        <div class="cc-icon">📦</div>
+        <h4>采购</h4>
+        <p>把东西买进来。产品成本的70%左右来自供应商，供应商在做70%的事。</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">🏭</div>
+        <h4>生产/运营</h4>
+        <p>加工增值，千遍万遍不走样。运营管理追求稳定性和效率。</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">🚚</div>
+        <h4>物流</h4>
+        <p>配送给客户。从A点到B点的时间、成本和服务水平管理。</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">🧠</div>
+        <h4>计划（引擎）</h4>
+        <p>告诉采购买什么、买多少；生产什么、生产多少；配送什么、配送多少。计划是供应链的引擎。</p>
+    </div>
+</div>
+
+<h3>推拉结合：供应链的核心逻辑</h3>
+<p>供应链要么是<strong>订单驱动（拉）</strong>，要么是<strong>预测驱动（推）</strong>。但本质上，<strong>一个人的订单注定是另一个人的预测</strong>。推拉结合点（Decoupling Point）的选择决定了供应链的响应速度和库存水平。</p>
+
+<div class="card">
+    <h4>经济型 vs 响应型供应链</h4>
+    <table>
+        <tr><th>维度</th><th>经济型供应链</th><th>响应型供应链</th></tr>
+        <tr><td>首要目标</td><td>最低成本</td><td>最快响应</td></tr>
+        <tr><td>产品特征</td><td>功能性产品、需求稳定</td><td>创新性产品、需求波动大</td></tr>
+        <tr><td>库存策略</td><td>低库存、高周转</td><td>缓冲库存、安全产能</td></tr>
+        <tr><td>典型行业</td><td>日用品、食品、基础材料</td><td>时尚服装、电子产品</td></tr>
+    </table>
+</div>
+
+<h3>供应链与产品、业务的战略匹配</h3>
+<p>核心原则：<strong>合适的产品配合适的供应链</strong>。功能性产品（需求可预测、生命周期长）适合经济型供应链；创新性产品（需求难预测、生命周期短）适合响应型供应链。<strong>如果用经济型供应链做创新产品，或者用响应型供应链做功能性产品，都是战略不匹配。</strong></p>
+
+<div class="quote tip">
+    <strong>💡 小贴士：模块化与延迟策略</strong>
+    模块化设计和延迟（Postponement）策略是实现大规模定制的关键 —— 在推拉结合点之前标准化，在结合点之后差异化，既能享受规模效益又能满足个性化需求。
+</div>
+</section>
+
+<!-- ===== 第2站：采购与供应商管理 ===== -->
+<section id="c2" class="ch-bk1">
+<div class="ch-head">
+    <span class="ch-num">第2站</span>
+    <h2>采购与供应商管理：从"小采购"到"大采购"</h2>
+    <p class="ch-source">📗 来源：《采购与供应链管理：一个实践者的角度》第4版 | scm-blog.com</p>
+</div>
+
+<h3>采购管理发展的五个阶段</h3>
+<p>源自哈克特集团模型，刘宝红做了本地化诠释。这五个阶段企业都在做，<strong>关键是主要资源花在哪个阶段</strong>。</p>
+
+<div class="table-scroll">
+<table>
+    <tr><th>阶段</th><th>名称</th><th>核心特征</th><th>归属</th><th>典型口号</th></tr>
+    <tr><td>1</td><td><strong>确保有料</strong></td><td>下单、跟单、收货、付款，文秘型采购</td><td style="color:#999">小采购</td><td>"别断料就行"</td></tr>
+    <tr><td>2</td><td><strong>最低价</strong></td><td>谈判压价、招标比价，省钱为主要指标</td><td style="color:#999">小采购</td><td>"谁便宜买谁的"</td></tr>
+    <tr><td>3</td><td><strong>总成本</strong></td><td>兼顾质量、物流、关税、使用、回收等全生命周期成本</td><td style="color:var(--amber)">过渡</td><td>"不光看单价"</td></tr>
+    <tr><td>4</td><td><strong>需求管理</strong></td><td>尽早介入需求定义，理顺需求以理顺供应</td><td style="color:var(--bk1)">大采购</td><td>"为什么要买这个"</td></tr>
+    <tr><td>5</td><td><strong>全面增值</strong></td><td>战略角色，优化供应链全局，打造一流供应链</td><td style="color:var(--bk1)">大采购</td><td>"供应链即竞争力"</td></tr>
+</table>
+</div>
+
+<div class="quote bk1">
+    <strong>🗣️ "大采购"与"小采购"的核心区别</strong>
+    小采购围绕订单转（买了什么、买了多少、什么时候到），大采购管理供应商和供应链。"大采购"不仅管理供应商（攘外），还管理内部需求（安内）。"小采购"主要扮演客户角色，"大采购"同时扮演内部供应商角色。
+</div>
+
+<h3>供应商管理：有选择，有管理</h3>
+
+<h4>供应商五分法：基于绩效和可替代性</h4>
+<div class="table-scroll">
+<table>
+    <tr><th>类型</th><th>特征</th><th>管理策略</th></tr>
+    <tr><td><strong>战略供应商</strong></td><td>绩效好 + 难替代 + 决定公司生死</td><td>重选择、重管理、轻淘汰</td></tr>
+    <tr><td><strong>优选供应商</strong></td><td>绩效好 + 可替代</td><td>优先合作，维持关系</td></tr>
+    <tr><td><strong>资格未定</strong></td><td>新供应商或考察期</td><td>限期考核，决定去留</td></tr>
+    <tr><td><strong>被动淘汰</strong></td><td>不给新生意，旧生意继续</td><td>自然萎缩，平稳过渡</td></tr>
+    <tr><td><strong>主动淘汰</strong></td><td>不给新生意 + 移走旧生意</td><td>"下策攻城"，双倍投入单倍产出</td></tr>
+</table>
+</div>
+
+<div class="quote amber">
+    <strong>⚠️ 常见误区</strong>
+    <strong>淘汰不是供应商管理。</strong>淘汰是"下策攻城"，投资回报最低。"轻选择、重淘汰"是供应商管理的一大误区——供应商选不好，后面的问题就不断。正确的做法是"重选择、重管理、轻淘汰"。
+</div>
+
+<h4>供应商协作关系的三个必要条件</h4>
+<ol class="steps">
+    <li><strong>长期关系</strong>"凡事先替对方的利益着想"；长期一起做生意不等于长期关系</li>
+    <li><strong>跟数量有限的供应商合作</strong>竞争"太充分"反而是问题——"水太混了，没有一个王八能够生存"</li>
+    <li><strong>共同解决问题，而不是转移问题</strong>这才是协作的标志，区别于竞合关系</li>
+</ol>
+
+<h3>供应链降本三台阶</h3>
+<div class="table-scroll">
+<table>
+    <tr><th>台阶</th><th>方法</th><th>手段</th><th>影响范围</th></tr>
+    <tr><td>第一台阶</td><td><strong>谈判降价</strong></td><td>整合需求+整合供应→规模效益</td><td>影响成本约10%</td></tr>
+    <tr><td>第二台阶</td><td><strong>流程优化</strong></td><td>精益生产+信息化→降低生产和交易成本</td><td>影响成本约20%</td></tr>
+    <tr><td>第三台阶</td><td><strong>设计优化</strong></td><td>价值工程(VE事前)+价值分析(VA事后)</td><td>产品成本的70-80%在设计阶段决定</td></tr>
+</table>
+</div>
+
+<div class="quote tip">
+    <strong>💡 核心洞察</strong>
+    三个台阶本质上都是通过降低复杂度来降低成本。整合需求=降低需求复杂度；整合供应=降低供应复杂度；流程优化=降低流程复杂度；设计优化=降低产品复杂度。
+</div>
+</section>
+
+<!-- ===== 第3站：前端防杂 ===== -->
+<section id="c3" class="ch-bk2">
+<div class="ch-head">
+    <span class="ch-num">第3站</span>
+    <h2>前端防杂：降低产品复杂度驱动的成本</h2>
+    <p class="ch-source">📘 来源：《供应链管理：高成本、高库存、重资产的解决方案》第2版</p>
+</div>
+
+<div class="quote bk2">
+    <strong>🗣️ 核心命题</strong>
+    "前端杂、后端重、中间乱往往交互影响、盘根错节。产品线越长，批量就越小，计划就越难做准，库存周转率就越低，产能利用率也越低。"
+</div>
+
+<h3>复杂度是成本的驱动器</h3>
+<p>很多企业的复杂度是为<strong>善意的目标</strong>而产生的，是由<strong>专家</strong>创造的——设计人员要创新、销售要满足客户每一个需求、市场要差异化。但<strong>价格由市场决定，成本由复杂度决定</strong>。</p>
+
+<h4>产品复杂度的三个层次</h4>
+<div class="table-scroll">
+<table>
+    <tr><th>层次</th><th>问题</th><th>解决方案</th></tr>
+    <tr><td><strong>产品线复杂度</strong></td><td>SKU泛滥，每个产品只卖一点点</td><td>精简产品线、干掉"僵尸SKU"</td></tr>
+    <tr><td><strong>产品设计复杂度</strong></td><td>零部件型号多、通用性差</td><td>标准化→系列化→模块化</td></tr>
+    <tr><td><strong>流程/组织复杂度</strong></td><td>流程冗余、组织叠床架屋</td><td>以客户为导向简化流程</td></tr>
+</table>
+</div>
+
+<h3>标准化、系列化、模块化：降复杂度的三阶梯</h3>
+<ol class="steps bk2">
+    <li><strong>标准化</strong>统一零件规格，减少零件种类。比如螺丝从50种减到5种。</li>
+    <li><strong>系列化</strong>在标准化的基础上形成产品平台，用少量零部件组合出多款产品。大众汽车MQB平台就是经典案例。</li>
+    <li><strong>模块化</strong>将产品拆分为独立模块，各模块可独立开发、生产和升级。特斯拉的一体压铸替代几十个冲压件焊接。</li>
+</ol>
+
+<h3>不是所有的格子都得填</h3>
+<p>企业做产品有两种思路：一是<strong>"所有的格子都填"</strong>（求大求全），一是<strong>"专填大格子"</strong>（战略聚焦）。开市客（Costco）和美国西南航空就是"专填大格子"的典范——也正是这样的聚焦战略，助力他们成为各自行业的佼佼者。</p>
+
+<div class="quote tip">
+    <strong>💡 小贴士：复杂度控制得"全民皆兵"</strong>
+    降低复杂度不仅是供应链的事，更需要研发、销售、市场的全员参与。供应链职能在产品复杂度控制中扮演核心角色——在集成产品开发（IPD）流程中，供应链早期介入，推动标准化选型。
+</div>
+</section>
+
+<!-- ===== 第4站：后端减重 ===== -->
+<section id="c4" class="ch-bk2">
+<div class="ch-head">
+    <span class="ch-num">第4站</span>
+    <h2>后端减重：走轻资产运作之路</h2>
+    <p class="ch-source">📘 来源：《供应链管理：高成本、高库存、重资产的解决方案》第2版</p>
+</div>
+
+<div class="quote bk2">
+    <strong>🗣️ 重资产之困</strong>
+    "重资产就如头顶磨盘，重资产往往跟现金短缺结伴而行。企业获取资源的方法有两种：要么借助市场（供应商做），要么竖向集成（自己做）。当没有能力选择和管理供应商时，企业就不得不走竖向集成之路。"
+</div>
+
+<h3>为什么需要轻资产</h3>
+<p>重资产运作意味着大量资金被厂房、设备、库存占用，投资回报率（ROA）持续走低。经济下行时，重资产企业背负巨大的固定成本，难以应对需求波动。轻资产就是把非核心业务外包给专业供应商，企业聚焦核心竞争力。</p>
+
+<h3>供应商管理能力是轻资产的必要条件</h3>
+<div class="card">
+    <h4>供应商管理的三大误区</h4>
+    <ol style="padding-left:20px;font-size:14px;color:var(--ink-2);line-height:2">
+        <li><strong>追求料号层面小优化，牺牲供应商层面大优化</strong>——最低价中标是采购能力不足的表现</li>
+        <li><strong>轻选择、重淘汰的频繁试错</strong>——公司越大，越经不起折腾</li>
+        <li><strong>过度依赖市场竞争来管理供应商</strong>——"异常充分的竞争"导致劣币驱逐良币</li>
+    </ol>
+</div>
+
+<h3>供应商从"买卖关系"到"集成供应商"</h3>
+<p>优秀的企业把供应商当作能力的延伸。供应商经历三个阶段成长：<strong>零部件制造 → 模块制造 → 模块设计</strong>。当供应商具备模块设计能力时，才真正成为"集成供应商"。</p>
+
+<div class="quote tip">
+    <strong>💡 关键洞察</strong>
+    管理权限划分不当，供应商会成为"公共草地"——大家都用、没人维护。供应商管理必须做到"有章可循"：分类、评估、选择、绩效管理、供应商集成，形成完整闭环。
+</div>
+</section>
+
+<!-- ===== 第5站：中间治乱 ===== -->
+<section id="c5" class="ch-bk2">
+<div class="ch-head">
+    <span class="ch-num">第5站</span>
+    <h2>中间治乱：改善供应链计划，控制库存</h2>
+    <p class="ch-source">📘 来源：《供应链管理：高成本、高库存、重资产的解决方案》第2版</p>
+</div>
+
+<div class="quote bk2">
+    <strong>🗣️ "治乱"的本质</strong>
+    "库存是企业运营的焦点问题。绩效貌似是执行的结果，其实是计划出来的。表面上看是没做到，实际上是没想到——计划想不到，执行就很难做到；即便做到了，也是以高昂的成本和库存为代价。"
+</div>
+
+<h3>计划的"七分管理"和"三分技术"</h3>
+<p>计划做不好的根本原因，往往不是技术问题，而是<strong>管理问题</strong>：组织上计划职能薄弱（甚至由销售或老总兼任）、流程上销售与运营没有有效对接、系统上数据不准导致MRP跑不起来。</p>
+
+<h3>库存的根源：三管齐下</h3>
+<ol class="steps bk2">
+    <li><strong>缩短周转周期，降低周转库存</strong>优化生产周期、物流周期和供应商交付周期</li>
+    <li><strong>控制不确定因素，降低安全库存</strong>减少需求和供应的波动，从根源上降低安全库存需求</li>
+    <li><strong>改善计划，降低多余库存</strong>提高预测准确度，从"高库存低有货"到"低库存高有货"</li>
+</ol>
+
+<h3>库存四分法：有区别地管理库存风险</h3>
+<div class="table-scroll">
+<table>
+    <tr><th>类型</th><th>特征</th><th>管理策略</th></tr>
+    <tr><td><strong>周转库存</strong></td><td>正常运营必需的库存</td><td>缩短周转周期来压缩</td></tr>
+    <tr><td><strong>安全库存</strong></td><td>应对不确定性的缓冲</td><td>控制不确定性来减少</td></tr>
+    <tr><td><strong>多余库存</strong></td><td>预测失误或计划不当产生</td><td>改善计划来避免</td></tr>
+    <tr><td><strong>死库存</strong></td><td>已无法使用的报废库存</td><td>及时清理，防止累积</td></tr>
+</table>
+</div>
+
+<h3>供应链计划需要指标体系来配套</h3>
+<p>指标体系是供应链运营的<strong>"保护伞"</strong>。关键的指标不仅是预测准确度（过程指标），更要关注<strong>按时交付率、库存周转率、资产回报率</strong>（结果指标）。"指标是责任体系的核心"——选择"饿死"还是"撑死"，指标说了算。</p>
+
+<div class="quote amber">
+    <strong>⚠️ 警惕"增长陷阱"</strong>
+    很多企业生意越做越多，钱越赚越少；账面上赚了，都赚到库存和产能里去了。这就是"增长陷阱"——营收增长掩盖了供应链的深层问题，一旦增速放缓，问题就会暴露。
+</div>
+</section>
+
+<!-- ===== 第6站：三道防线之需求预测 ===== -->
+<section id="c6" class="ch-bk3">
+<div class="ch-head">
+    <span class="ch-num">第6站</span>
+    <h2>第一道防线：需求预测 —— 从数据开始，由判断结束 <span class="badge badge-must">新人必读</span></h2>
+    <p class="ch-source">📙 来源：《供应链的三道防线》第2版 | scm-blog.com</p>
+</div>
+
+<div class="quote bk3">
+    <strong>🗣️ 三道防线的总逻辑</strong>
+    所有的预测都是错的，但错多错少可不一样。供应链的三道防线相当于一条河上的三道堤坝：需求预测是第一道（拦住80%的洪水）→ 库存计划是第二道（拦住10-20%）→ 供应链执行是第三道（对付剩余的5-10%）。如果第一道堤坝被冲垮，后面两道注定也会垮掉。
+</div>
+
+<h3>"从数据开始，由判断结束"</h3>
+<p>这是刘宝红整体系列中最核心的决策方法论。计划有数据分析能力（熟悉系统、精于需求历史分析），销售有业务判断（跟客户和市场打交道）。两者结合，<strong>已知的数据加上未知的判断，造就了准确度最高的错误的预测</strong>。</p>
+
+<div class="card">
+    <h4>两个常见错误</h4>
+    <p><strong>错误1：</strong>计划"胡子眉毛一把抓"，没有提炼出真正需要销售判断的"大石头"产品<br>
+    <strong>错误2：</strong>错误的职能在做正确的事——销售没数据却被要求做预测，计划没判断却在做判断</p>
+</div>
+
+<h3>需求预测 ≠ 销售目标</h3>
+<div class="table-scroll">
+<table>
+    <tr><th>维度</th><th>需求预测</th><th>销售目标</th></tr>
+    <tr><td>本质</td><td>对未来的"判断"（会是多少）</td><td>对未来的"期望"（要是多少）</td></tr>
+    <tr><td>驱动因素</td><td>历史数据 + 市场判断</td><td>战略规划 + KPI 要求</td></tr>
+    <tr><td>用途</td><td>驱动供应链准备产能和库存</td><td>驱动销售团队努力方向</td></tr>
+    <tr><td>风险</td><td>拿销售目标当预测 → 库存灾难</td><td>—</td></tr>
+</table>
+</div>
+
+<h3>需求计划的关键组织问题</h3>
+<div class="concept-grid">
+    <div class="concept-card">
+        <h4>谁来做需求预测？</h4>
+        <p>必须建立<strong>独立的需求计划职能</strong>。一线销售颗粒度太小做不好预测；即使考核准确度也不行（没见过哪个销售因为预测不准丢了工作）。</p>
+    </div>
+    <div class="concept-card">
+        <h4>需求预测汇报给谁？</h4>
+        <p>不能汇报给销售，也不能汇报给采购。<strong>计划与执行的分离</strong>是关键——计划专注于"做什么最合理"，执行专注于"怎么做最快"。预测的最终结果由销售老总负责。</p>
+    </div>
+    <div class="concept-card">
+        <h4>什么时候做预测？</h4>
+        <p>在<strong>合适的颗粒度</strong>上做预测——不是越细越好。推拉结合点就是数据和判断的最佳结合点：颗粒度太细靠数据，颗粒度太粗靠判断。</p>
+    </div>
+    <div class="concept-card">
+        <h4>预测错了怎么办？</h4>
+        <p><strong>小步快走，滚动预测，尽快纠偏。</strong>不是一次性做对，而是快速识别偏差、快速调整。聚焦重点客户的重点变化，从产品开发阶段就开始纠偏。</p>
+    </div>
+</div>
+
+<h3>计划的进化史</h3>
+<p>阶段一：销售兼职做计划（游击队）→ 阶段二：独立的计划职能（正规军）→ 阶段三：系统+流程对接，"从数据开始由判断结束"（现代化部队）。<strong>肯德基是"计划+执行分离"的典范</strong>：中央计划统一制定预测，门店只管执行。</p>
+</section>
+
+<!-- ===== 第7站：三道防线之库存计划与执行 ===== -->
+<section id="c7" class="ch-bk3">
+<div class="ch-head">
+    <span class="ch-num">第7站</span>
+    <h2>第二��三道防线：库存计划与供应链执行</h2>
+    <p class="ch-source">📙 来源：《供应链的三道防线》第2版 | scm-blog.com</p>
+</div>
+
+<h3>第二道防线：库存计划（安全库存）</h3>
+<p>需求预测错了怎么办？供应链的自然应对就是设立<strong>安全库存</strong>。但安全库存不意味着"安全"，而是在一定波动范围内应对不确定性。当不确定性超出安全库存的覆盖范围时，就需要第三道防线来补位。</p>
+
+<h4>安全库存设置三步法</h4>
+<ol class="steps bk3">
+    <li><strong>量化需求的不确定性</strong>统计需求历史的标准差，量化波动程度。需求越不稳定，安全库存越高。</li>
+    <li><strong>量化服务水平的要求</strong>确定期望的有货率（如95%或99%）。服务水平越高，安全库存越高。</li>
+    <li><strong>计算安全库存</strong>安全库存 = Z值 × 需求标准差 × √提前期。这是一个科学的计算过程，不能拍脑袋。</li>
+</ol>
+
+<h4>再订货点：预测和库存的结合点</h4>
+<p><strong>再订货点 = 预测需求 + 安全库存</strong>。当库存降到这个水平时就触发补货。这个看似简单的公式背后，需要假设需求服从正态分布，供应提前期相对稳定。</p>
+
+<div class="quote tip">
+    <strong>💡 库存计划要学赌场，而不是学赌徒</strong>
+    赌场靠概率和统计赚钱（赌场永远赢），赌徒靠运气和直觉赌钱（赌徒偶尔赢）。科学设置库存水位就是做"赌场"——基于统计规律做决策，不靠拍脑袋。
+</div>
+
+<h3>VMI（供应商管理库存）</h3>
+<p>VMI是对供应链三道防线的<strong>终极挑战</strong>——供应商不仅要管理自己的库存，还要管理客户的库存。VMI要求供应商有很强的需求预测和库存计划能力。"VMI是个好东西，对供应商也是如此"，因为它让供应商直接接触终端需求信息，减少牛鞭效应。</p>
+
+<h3>第三道防线：供应链执行</h3>
+<p>当预测错了、安全库存不够用了，就靠<strong>供应链执行来弥补</strong>：加急赶工、压缩响应周期、整合供应商集中采购额驱动更快响应。</p>
+
+<div class="card">
+    <h4>执行防线的关键策略</h4>
+    <ol style="padding-left:20px;font-size:14px;color:var(--ink-2);line-height:2">
+        <li><strong>把自己做成大客户</strong>——采购额集中了，供应商自然优先响应你</li>
+        <li><strong>尊重供应链的刚性</strong>——计划不能随意变动，变来变去的代价是库存和加急成本</li>
+        <li><strong>信息系统是基础</strong>——ERP跑不起来、BOM不准、库存数据不准，执行就无从谈起</li>
+        <li><strong>不要所有短缺最后都以过剩收尾</strong>——恐慌性加库存是最常见的陷阱</li>
+    </ol>
+</div>
+
+<h3>降库存：推动意志力的极限</h3>
+<p>降库存是推动意志力极限的事——库存涉及众多内部职能（销售要现货、财务要周转、生产要稳定），<strong>很难转移，必须内部解决</strong>。降库存要避免互扣人质的死循环：销售怪供应链没货，供应链怪销售预测不准。</p>
+
+<div class="quote bk3">
+    <strong>🗣️ 最终目标：从"高库存低有货"到"低库存高有货"</strong>
+    第一阶段：高库存、低有货（最差，库存多但需要的没有）→ 第二阶段：高库存、高有货（还行，但成本高）→ 第三阶段：低库存、高有货（最优，精益供应链的标志）。
+</div>
+</section>
+
+<!-- ===== 第8站：速查工具包 ===== -->
+<section id="c8">
+<div class="ch-head">
+    <span class="ch-num">第8站</span>
+    <h2>速查工具包：术语词典 + 核心模型卡片 + 延伸资源</h2>
+</div>
+
+<h3>📖 术语词典</h3>
+<div class="glossary">
+    <div class="term"><div class="t">供应链三流集成</div><div class="d">产品流、信息流、资金流的协同管理，是供应链管理的核心定义</div></div>
+    <div class="term"><div class="t">牛鞭效应</div><div class="d">需求信息在供应链上下游传递中逐级放大，导致上游过度备货</div></div>
+    <div class="term"><div class="t">S&OP</div><div class="d">销售与运营计划，拉通多职能制定同一个计划的协同机制</div></div>
+    <div class="term"><div class="t">推拉结合点</div><div class="d">供应链中从预测驱动（推）切换到订单驱动（拉）的分界点</div></div>
+    <div class="term"><div class="t">MRP</div><div class="d">物料需求计划，根据BOM和库存计算需要采购和生产的物料</div></div>
+    <div class="term"><div class="t">BOM</div><div class="d">物料清单，产品所有零部件的结构化列表，MRP的基础数据</div></div>
+    <div class="term"><div class="t">SKU</div><div class="d">库存量单位，产品的唯一标识。SKU泛滥是复杂度的一大来源</div></div>
+    <div class="term"><div class="t">VMI</div><div class="d">供应商管理库存，供应商负责管理客户的库存水平</div></div>
+    <div class="term"><div class="t">VE/VA</div><div class="d">价值工程(事前)/价值分析(事后)，降本第三台阶的核心工具</div></div>
+    <div class="term"><div class="t">IPD</div><div class="d">集成产品开发，供应链早期介入产品开发的流程体系</div></div>
+    <div class="term"><div class="t">安全库存</div><div class="d">为应对需求和供应不确定性而设置的缓冲库存</div></div>
+    <div class="term"><div class="t">再订货点</div><div class="d">库存降到此水平时触发补货：再订货点 = 预测需求 + 安全库存</div></div>
+    <div class="term"><div class="t">经济型供应链</div><div class="d">以最低成本为目标，适合功能性产品、需求稳定的场景</div></div>
+    <div class="term"><div class="t">响应型供应链</div><div class="d">以最快响应为目标，适合创新性产品、需求波动大的场景</div></div>
+    <div class="term"><div class="t">小采购</div><div class="d">围绕订单：确保供料和最低价（采购五阶段的阶段1-2）</div></div>
+    <div class="term"><div class="t">大采购</div><div class="d">围绕供应商和供应链：需求管理和全面增值（阶段4-5）</div></div>
+</div>
+
+<h3>🧩 核心模型速查卡片</h3>
+<div class="concept-grid">
+    <div class="concept-card">
+        <div class="cc-icon">🏗️</div>
+        <h4>三道防线</h4>
+        <p>需求预测(第一道) → 安全库存(第二道) → 供应链执行(第三道)</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">📉</div>
+        <h4>降本三台阶</h4>
+        <p>谈判降价 → 流程优化 → 设计优化（越往后越从根本上降本）</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">🎯</div>
+        <h4>三管齐下</h4>
+        <p>前端防杂（降复杂度）→ 后端减重（轻资产）→ 中间治乱（改善计划）</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">📊</div>
+        <h4>采购五阶段</h4>
+        <p>确保有料→最低价→总成本→需求管理→全面增值</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">🤝</div>
+        <h4>供应商五分法</h4>
+        <p>战略/优选/资格未定/被动淘汰/主动淘汰</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">🔄</div>
+        <h4>库存四分法</h4>
+        <p>周转库存/安全库存/多余库存/死库存</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">🧠</div>
+        <h4>核心决策方法</h4>
+        <p>"从数据开始，由判断结束" — 计划有数据、营销有判断</p>
+    </div>
+    <div class="concept-card">
+        <div class="cc-icon">📐</div>
+        <h4>标准化三阶梯</h4>
+        <p>标准化 → 系列化 → 模块化</p>
+    </div>
+</div>
+
+<h3>📚 延伸学习资源</h3>
+<div class="card">
+    <h4>官方渠道</h4>
+    <p>· <a href="https://scm-blog.com" target="_blank" style="color:var(--bk1)">供应链管理专栏 scm-blog.com</a> — 刘宝红官方博客，数百篇原创文章<br>
+    · 微信公众号：供应链管理专栏<br>
+    · 邮箱：bob.liu@scm-blog.com</p>
+</div>
+<div class="card">
+    <h4>推荐书籍（按阅读顺序）</h4>
+    <ol style="padding-left:20px;font-size:14px;color:var(--ink-2);line-height:2">
+        <li>《采购与供应链管理：一个实践者的角度》第4版 — 入门首选</li>
+        <li>《供应链的三道防线》第2版 — 深入计划和库存</li>
+        <li>《供应链管理：高成本、高库存、重资产的解决方案》第2版 — 战略视角</li>
+        <li>《需求预测和库存计划：一个实践者的角度》— 技术深化</li>
+        <li>《供应链管理：实践者的专家之路》— 职业成长</li>
+    </ol>
+    <p style="font-size:13px;color:var(--ink-3);margin-top:8px">以上书籍在京东、当当等平台有售（纸质版+电子版）</p>
+</div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+    <p>📦 SCM-Knowledge-Atlas · 刘宝红供应链管理知识图谱</p>
+    <p>内容综合自 <a href="https://scm-blog.com" target="_blank">供应链管理专栏（scm-blog.com）</a> 刘宝红公开文章</p>
+    <p>系统性梳理，仅供个人学习参考。如需深入学习，建议购买正版书籍。</p>
+    <p style="margin-top:12px;font-size:12px">© 刘宝红（Bob Liu）· 机械工业出版社 · 版本 2026.07</p>
+</footer>
+
+</div><!-- .wrap -->
+
+<!-- Back to top -->
+<button id="top" title="回到顶部">↑</button>
+
+<!-- Resume badge -->
+<div id="resume-badge">📍 继续上次阅读 ↓</div>
+
+<script>
+// ===== Reading Progress Bar =====
+(function(){
+    var bar = document.getElementById('progress');
+    window.addEventListener('scroll',function(){
+        var st = window.scrollY || document.documentElement.scrollTop;
+        var dh = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = dh ? (st/dh*100) + '%' : '0%';
+    });
+})();
+
+// ===== Back to Top =====
+(function(){
+    var btn = document.getElementById('top');
+    window.addEventListener('scroll',function(){
+        btn.classList.toggle('show', (window.scrollY || document.documentElement.scrollTop) > 400);
+    });
+    btn.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+
+// ===== Resume Reading Position =====
+(function(){
+    var badge = document.getElementById('resume-badge');
+    window.addEventListener('beforeunload',function(){
+        sessionStorage.setItem('scmScrollPos', window.scrollY);
+    });
+    window.addEventListener('load',function(){
+        var pos = sessionStorage.getItem('scmScrollPos');
+        if(pos && parseInt(pos) > 200){
+            badge.classList.add('show');
+            badge.addEventListener('click',function(){
+                window.scrollTo({top:parseInt(pos),behavior:'smooth'});
+                badge.classList.remove('show');
+            });
+        }
+    });
+})();
+
+// ===== Navigation Active State =====
+(function(){
+    var navLinks = document.querySelectorAll('#nav a');
+    var sections = [];
+    navLinks.forEach(function(a){
+        var id = a.getAttribute('href');
+        if(id && id.startsWith('#')){
+            var sec = document.querySelector(id);
+            if(sec) sections.push({link:a, section:sec, id:id});
+        }
+    });
+    window.addEventListener('scroll',function(){
+        var st = window.scrollY || document.documentElement.scrollTop;
+        var current = null;
+        sections.forEach(function(item){
+            if(item.section.offsetTop - 100 <= st) current = item;
+        });
+        navLinks.forEach(function(a){ a.classList.remove('active'); });
+        if(current) current.link.classList.add('active');
+    });
+})();
+
+// ===== Page Search =====
+(function(){
+    var input = document.getElementById('search-input');
+    var info = document.getElementById('search-info');
+    var searchable = document.querySelectorAll('section, .card, .concept-card, .term, .quote');
+
+    function clearHighlights(){
+        document.querySelectorAll('.search-highlight').forEach(function(el){
+            var parent = el.parentNode;
+            parent.replaceChild(document.createTextNode(el.textContent), el);
+            parent.normalize();
+        });
+    }
+
+    function highlightText(el, term){
+        if(!el.textContent) return;
+        var html = el.innerHTML;
+        var regex = new RegExp('(' + term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')','gi');
+        el.innerHTML = html.replace(regex, '<span class="search-highlight">$1</span>');
+    }
+
+    input.addEventListener('input',function(){
+        clearHighlights();
+        var term = input.value.trim().toLowerCase();
+        if(!term){
+            searchable.forEach(function(el){ el.classList.remove('hidden-by-search'); });
+            info.classList.remove('show');
+            return;
+        }
+
+        var matchCount = 0;
+        searchable.forEach(function(el){
+            var text = el.textContent.toLowerCase();
+            if(text.indexOf(term) !== -1){
+                el.classList.remove('hidden-by-search');
+                matchCount++;
+                highlightText(el, term);
+            } else {
+                el.classList.add('hidden-by-search');
+            }
+        });
+
+        // Always show sections that contain visible cards
+        document.querySelectorAll('section').forEach(function(sec){
+            var visible = sec.querySelectorAll('.card:not(.hidden-by-search), .concept-card:not(.hidden-by-search), .term:not(.hidden-by-search), .quote:not(.hidden-by-search), p:not(.hidden-by-search)');
+            if(visible.length > 0 && term){
+                sec.classList.remove('hidden-by-search');
+            }
+        });
+
+        info.textContent = '找到 ' + matchCount + ' 条匹配结果';
+        info.classList.add('show');
+    });
+})();
+</script>
+
+</body>
+</html>
