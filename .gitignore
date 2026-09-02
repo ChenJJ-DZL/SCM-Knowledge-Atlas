@@ -1,0 +1,14 @@
+# === 版权红线：书本源文件与全文，绝不外传 ===
+_book_extracts/
+*_extracts/
+*.pdf
+*.epub
+*.mobi
+*.azw3
+
+# 构建中间产物
+index_new.html
+
+# 系统文件
+.DS_Store
+Thumbs.db
