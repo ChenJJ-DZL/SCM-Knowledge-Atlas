@@ -141,6 +141,36 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 .book-toc li { margin:2px 0 }
 .highlight-box { background:var(--bk1-light); border-left:4px solid var(--bk1); padding:14px 18px; border-radius:0 12px 12px 0; margin:16px 0; font-size:14px; color:var(--ink); line-height:1.8 }
 
+/* 核心知识详解 */
+.knowledge-block { margin:0 0 8px }
+.book-main h3 { font-size:15.5px; font-weight:700; color:var(--ink); margin:22px 0 6px; display:flex; align-items:center; gap:8px }
+.book-main h3::before { content:""; width:4px; height:16px; background:var(--bk1); border-radius:3px; display:inline-block }
+.knowledge-block h4 { font-size:14px; font-weight:700; color:var(--bk1); margin:14px 0 4px }
+.knowledge-block ul { margin:6px 0 10px; padding-left:20px; font-size:14.5px; color:var(--ink-2); line-height:1.8 }
+.knowledge-block li { margin:4px 0 }
+.knowledge-block li strong { color:var(--ink) }
+
+/* STAR 法则案例 */
+.star-case { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px 12px; margin:16px 0; box-shadow:var(--shadow) }
+.star-case .sc-name { font-size:15px; font-weight:800; color:var(--ink); margin:0 0 10px; display:flex; align-items:center; gap:8px; line-height:1.5 }
+.star-case .sc-name::before { content:"★"; color:var(--amber); font-size:16px }
+.star-step { border-left:4px solid; padding:10px 14px; margin:10px 0; border-radius:0 12px 12px 0; font-size:14px; line-height:1.7; color:var(--ink-2) }
+.star-step .sl { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; color:#fff; font-size:12px; font-weight:800; margin-right:8px; vertical-align:middle }
+.star-step b { color:var(--ink); font-weight:700; letter-spacing:.3px }
+.star-step p { margin:4px 0 0; font-size:14px; color:var(--ink-2) }
+.star-step.s { border-color:var(--bk2); background:var(--bk2-light) }
+.star-step.s .sl { background:var(--bk2) }
+.star-step.s b { color:var(--bk2) }
+.star-step.t { border-color:var(--amber); background:var(--amber-soft) }
+.star-step.t .sl { background:var(--amber) }
+.star-step.t b { color:var(--amber) }
+.star-step.a { border-color:var(--tip); background:var(--tip-soft) }
+.star-step.a .sl { background:var(--tip) }
+.star-step.a b { color:var(--tip) }
+.star-step.r { border-color:var(--indigo); background:var(--indigo-soft) }
+.star-step.r .sl { background:var(--indigo) }
+.star-step.r b { color:var(--indigo) }
+
 </style>
 </head>
 <body>
@@ -163,6 +193,13 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 <div class="book-main">
   <h2>本书概述</h2>
   <div class="highlight-box"><strong>核心方法论</strong><br>"避免大错，靠人脑；追求精益，靠电脑"——高度不确定的需求用德尔菲法群策群力；重复性高的需求清洗历史数据、选择预测模型优化。</div><div class="highlight-box"><strong>实用价值</strong><br>本书不是预测理论专著，而是为实践者量身打造的应用书。所有案例在Excel中完成。从移动平均、指数平滑到霍尔特-温特季节模型，再到安全库存计算和再订货点设置，手把手教你做计划。</div><div class="highlight-box"><strong>关键哲学</strong><br>"寻找更优，而不是最优的解决方案"——预测模型优化要提防过度拟合。"有时候，不预测就是最好的预测。"</div>
+  
+  <h2>📚 核心知识详解</h2><div class="knowledge-block"><h3>一、预测的技术路线：从简单到季节模型</h3><p>预测不是越复杂的模型越好，而是"够用就好"。针对不同需求模式，选最合适的模型。所有案例都可以在 Excel 里完成。</p><ul><li>数据是基础：先定义需求历史、清洗数据、处理极端值，垃圾数据进、垃圾结果出。</li><li>平稳需求用移动平均、简单指数平滑；带趋势用霍尔特法/线性回归；带季节用霍尔特-温特法。</li><li>评估模型优劣看两个维度：准确度 + 系统性偏差（是否有持续高估/低估）。</li></ul></div><div class="knowledge-block"><h3>二、高度不确定时怎么办：德尔菲法</h3><p>当需求高度不确定、历史数据不可靠时，硬套模型反而危险。这时候靠"群策群力"避免大错。</p><ul><li>德尔菲法：让多个懂行的人独立判断，再汇总收敛，避免个人偏见和从众。</li><li>"避免大错，靠人脑；追求精益，靠电脑"——不确定性越高，越要依靠判断而非纯算法。</li><li>核心比喻："瓶子里有多少颗糖"，众人的平均判断往往比单个专家更接近真相。</li></ul></div><div class="knowledge-block"><h3>三、预测不准，靠安全库存和再订货点兜底</h3><p>既然预测不可能全准，就要用安全库存和补货机制来兜底，这是"三分技术"里最关键的可落地动作。</p><ul><li>安全库存应对三种不确定性：仅需求不确定、仅供应不确定、两者都不确定，公式各不相同。</li><li>再订货点机制：定量补货、定期补货、VMI 水位设置，选对机制比死盯预测更省心。</li><li>新品预测"尽量做准、尽快纠偏"：开发期、预售期滚动纠偏，别指望一次预测到位。</li></ul></div>
+  
+  <h2>🎯 经典案例拆解（STAR 法则）</h2><div class="star-case"><div class="sc-name">一家电商：中心仓择优的预测优化</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>某电商 SKU 极多、需求波动大，统一用单一预测模型效果很差。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>为不同需求模式的海量 SKU 找到各自最优的预测方法。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>按需求模式把 SKU 分类，对每类分别测试移动平均、指数平滑、季节模型，选择误差最小的方法，并在中心仓层面统一执行。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>预测准确度显著提升，库存与缺货双双改善，验证了"分类择优"比"一刀切"有效。</p></div></div><div class="star-case"><div class="sc-name">新品预测：尽量做准，尽快纠偏</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>新品没有历史数据，传统预测模型无从下手，容易大起大落。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>在新品上市前后尽可能做准预测，并随销售反馈快速修正。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>开发期用类比同类产品 + 专家判断做初始预测，预售期开始按真实订单滚动纠偏，逐步逼近真实需求。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>新品库存错配大幅减少，避免"一上市就断货"或"一上市就积压"的两种极端。</p></div></div>
+  
+  <h2>🔤 专有名词解释</h2>
+<div class="glossary"><div class="term"><div class="t">移动平均</div><div class="d">用最近若干期需求的平均值做预测，适合平稳、无明显趋势和季节的需求。</div></div><div class="term"><div class="t">指数平滑</div><div class="d">给近期数据更高权重、逐期衰减的预测方法，比简单平均更灵敏。</div></div><div class="term"><div class="t">霍尔特-温特法</div><div class="d">同时处理趋势和季节性的预测模型，是季节性需求预测的主力工具。</div></div><div class="term"><div class="t">德尔菲法</div><div class="d">多位专家独立判断、多轮汇总收敛的结构化预测法，适合高度不确定场景。</div></div><div class="term"><div class="t">安全库存</div><div class="d">为应对需求/供应不确定性而持有的缓冲库存，量化不确定性后计算得出。</div></div><div class="term"><div class="t">再订货点</div><div class="d">当库存降到某个阈值就触发补货的机制，是库存补货的自动触发器。</div></div><div class="term"><div class="t">服务水平</div><div class="d">在客户需要时能供货的概率，是设定安全库存的核心目标参数。</div></div><div class="term"><div class="t">长尾产品</div><div class="d">种类多、单量小的产品，需用泊松分布等专门方法做库存计划。</div></div></div>
   
   <div class="book-toc"><h3>📖 完整目录</h3><ol><li style="font-weight:600;color:var(--ink);margin-top:8px">引言 计划是供应链的引擎（从"七分管理"到"三分技术"）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第1章 数据是计划的基础（需求历史定义、数据清洗、极端值处理）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第2章 移动平均法和简单指数平滑法</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第3章 评估预测方法的优劣（准确度、系统性偏差）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第4章 趋势的预测（霍尔特法、线性回归）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第5章 季节性需求的预测（霍尔特-温特法、三种方式对比案例）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第6章 一家电商的预测方法优化（中心仓择优案例）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第7章 高度不确定性下如何预测——德尔菲法</li><li style="margin-left:16px;list-style-type:circle">核心方法："瓶子里有多少颗糖"游戏→群策群力避免大错</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第8章 新品预测：尽量做准，尽快纠偏</li><li style="margin-left:16px;list-style-type:circle">新品开发期滚动纠偏、新品预售期滚动纠偏</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第9章 预测不准，设置安全库存来应对</li><li style="margin-left:16px;list-style-type:circle">三种不确定性组合（仅需求/仅供应/两者都不确定）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第10章 再订货点和再订货机制（定量/定期补货、VMI水位设置）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第11章 长尾产品：库存计划的终极挑战（泊松分布模拟）</li></ol></div>
   

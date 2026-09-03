@@ -141,6 +141,36 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 .book-toc li { margin:2px 0 }
 .highlight-box { background:var(--bk1-light); border-left:4px solid var(--bk1); padding:14px 18px; border-radius:0 12px 12px 0; margin:16px 0; font-size:14px; color:var(--ink); line-height:1.8 }
 
+/* 核心知识详解 */
+.knowledge-block { margin:0 0 8px }
+.book-main h3 { font-size:15.5px; font-weight:700; color:var(--ink); margin:22px 0 6px; display:flex; align-items:center; gap:8px }
+.book-main h3::before { content:""; width:4px; height:16px; background:var(--bk1); border-radius:3px; display:inline-block }
+.knowledge-block h4 { font-size:14px; font-weight:700; color:var(--bk1); margin:14px 0 4px }
+.knowledge-block ul { margin:6px 0 10px; padding-left:20px; font-size:14.5px; color:var(--ink-2); line-height:1.8 }
+.knowledge-block li { margin:4px 0 }
+.knowledge-block li strong { color:var(--ink) }
+
+/* STAR 法则案例 */
+.star-case { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px 12px; margin:16px 0; box-shadow:var(--shadow) }
+.star-case .sc-name { font-size:15px; font-weight:800; color:var(--ink); margin:0 0 10px; display:flex; align-items:center; gap:8px; line-height:1.5 }
+.star-case .sc-name::before { content:"★"; color:var(--amber); font-size:16px }
+.star-step { border-left:4px solid; padding:10px 14px; margin:10px 0; border-radius:0 12px 12px 0; font-size:14px; line-height:1.7; color:var(--ink-2) }
+.star-step .sl { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; color:#fff; font-size:12px; font-weight:800; margin-right:8px; vertical-align:middle }
+.star-step b { color:var(--ink); font-weight:700; letter-spacing:.3px }
+.star-step p { margin:4px 0 0; font-size:14px; color:var(--ink-2) }
+.star-step.s { border-color:var(--bk2); background:var(--bk2-light) }
+.star-step.s .sl { background:var(--bk2) }
+.star-step.s b { color:var(--bk2) }
+.star-step.t { border-color:var(--amber); background:var(--amber-soft) }
+.star-step.t .sl { background:var(--amber) }
+.star-step.t b { color:var(--amber) }
+.star-step.a { border-color:var(--tip); background:var(--tip-soft) }
+.star-step.a .sl { background:var(--tip) }
+.star-step.a b { color:var(--tip) }
+.star-step.r { border-color:var(--indigo); background:var(--indigo-soft) }
+.star-step.r .sl { background:var(--indigo) }
+.star-step.r b { color:var(--indigo) }
+
 </style>
 </head>
 <body>
@@ -163,6 +193,13 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 <div class="book-main">
   <h2>本书概述</h2>
   <div class="highlight-box"><strong>核心方法论贯穿全书</strong><br>改变方法论而非更努力："老方法自然会产生老结果。不能光更努力，而是要不一样。"通过管好需求做好计划、对接产品设计优化成本、选好管好供应商获取规模效益——从根本解决基本面问题。</div><div class="highlight-box"><strong>标志性案例</strong><br>苹果供应链成功（库克打造供应链核心竞争力）、戴尔直销模式兴衰（推拉结合的经典教训）、小米三星2016年战略供应商危机（雷军四次飞韩国）、摩托罗拉复杂度致死（100+种电池型号）、振华重工增长陷阱案例。</div><div class="highlight-box"><strong>关于本书</strong><br>第4版相较第3版更加聚焦"为什么"，通过探究根因来更好地回答"怎么办"。坚持三项准则：不宣传走捷径、不宣传最佳实践、填补学者与实践者之间的空白。</div>
+  
+  <h2>📚 核心知识详解</h2><div class="knowledge-block"><h3>一、先有全局观：供应链是三条流的集成</h3><p>供应链不是"物流"，而是信息流、产品流、资金流三条流拧成的一根绳。多数企业只盯着产品流（货搬来搬去），却忽略了信息流（需求怎么传递）和资金流（钱怎么流动、库存占了多少现金）。三流一旦脱节，问题就出来了。</p><ul><li>信息流：需求预测、订单、计划逐级传递，牛鞭效应就是信息流失真的典型。</li><li>产品流：从原材料到成品再到客户手中的实物流，决定交付速度与质量。</li><li>资金流：库存占用现金、账期影响现金流，资产周转率是资金流的核心指标。</li><li>供应链管理 = 管理这三条流的集成，而不是各自为战。</li></ul></div><div class="knowledge-block"><h3>二、管好供应商，才能管好供应链</h3><p>供应链的核心竞争力，很大程度上是供应商管理的能力。多数企业的供应商管理有三个通病，先认清病根才能对症下药。</p><ul><li>三大误区：多权分立（采购分散在各业务单元）、采购额分散（雨露均沾）、有选择没管理（只选不用管）。</li><li>供应商分类：用"采购额 × 供应风险"把供应商分成战略、瓶颈、杠杆、日常四类，区别对待。</li><li>绩效管理：用 QCDSTAP 七大指标（成本/质量/交付/服务/技术/资产/流程）量化打分，识别短板敦促改进。</li><li>一品一点：同一品类聚焦少数供应商，把量集中起来换取规模效益和议价权。</li></ul></div><div class="knowledge-block"><h3>三、从「小采购」到「大采购」</h3><p>采购要从"下订单的办事员"升级为"影响总成本的战略职能"。这是一个从"小采购"（被动执行）到"大采购"（主动影响设计、供应商、需求）的五阶段演进。</p><ul><li>五阶段：供应管理→采购管理→供应商管理→供应商集成→供应链管理，层层递进。</li><li>角色转变：从"猎人"（四处比价压价）变成"牧人"（长期培养供应商）。</li><li>大采购要管住总成本（TCO），而不只是采购单价——设计阶段的成本决定占 70% 以上。</li><li>组织上要"两层分离"：战略采购与日常下单分离，让专业人员做专业的事。</li></ul></div>
+  
+  <h2>🎯 经典案例拆解（STAR 法则）</h2><div class="star-case"><div class="sc-name">小米三星 2016 年战略供应商危机</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>2016 年小米旗舰机因供应链失衡陷入交付危机，关键屏厂三星断供，多款机型缺货、销量下滑。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>小米需要极短时间内稳住供应链、恢复旗舰机交付，同时重建与核心屏厂的关系。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>雷军亲自接管供应链，多次飞韩国与三星高层谈判道歉，把供应商关系从"压价博弈"转向"战略协作"；同时压缩 SKU、聚焦爆款，降低复杂度。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>2017 年小米手机出货量强势反弹，重返全球前列。教训：战略供应商必须当伙伴经营，不能一味压榨。</p></div></div><div class="star-case"><div class="sc-name">摩托罗拉：复杂度致死</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>巅峰期的摩托罗拉手机拥有 100 多种电池型号、海量 SKU，复杂度失控。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>需要在产品线膨胀与成本、库存之间找到平衡，避免被复杂度拖垮。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>摩托罗拉未能有效收敛产品线与零部件的复杂度，供应链被海量型号拖累，成本与库存双双高企。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>最终被对手超越、走向衰落。教训：复杂度是隐形成本，必须主动治理。</p></div></div><div class="star-case"><div class="sc-name">苹果：把供应链做成核心竞争力</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>1998 年苹果濒临破产，库存高企、产品线混乱。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>削减库存、聚焦产品、重建供应链，把供应链变成竞争壁垒。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>库克主导供应链变革：砍掉海量 SKU、关闭自有工厂、把制造外包给富士康等专业供应商、用数据精细化管控库存与交付。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>苹果库存周转天数降到行业顶尖水平，供应链成为苹果高利润率与新品快速上量的关键支撑。</p></div></div>
+  
+  <h2>🔤 专有名词解释</h2>
+<div class="glossary"><div class="term"><div class="t">牛鞭效应</div><div class="d">需求信息沿供应链逐级传递时被逐级放大，终端小幅波动传导到上游变成剧烈波动，导致库存积压或断货。</div></div><div class="term"><div class="t">集成供应链</div><div class="d">打破部门墙，把销售/计划/采购/制造/物流连成整体协同运作，而非各管一段各自优化。</div></div><div class="term"><div class="t">战略供应商</div><div class="d">对成本、质量、交付影响大且难以替代的少数关键供应商，需要长期深度协同而非简单比价。</div></div><div class="term"><div class="t">供应商四分法</div><div class="d">按"采购额 × 供应风险"把供应商分为战略型、瓶颈型、杠杆型、日常型，区别对待、重点管理。</div></div><div class="term"><div class="t">QCDSTAP</div><div class="d">供应商绩效的七大指标：质量(Q)、成本(C)、交付(D)、服务(S)、技术(T)、资产(A)、流程(P)。</div></div><div class="term"><div class="t">一品一点</div><div class="d">同一品类集中由少数供应商供货，把采购量集中起来换取规模效益与议价能力。</div></div><div class="term"><div class="t">规模效益</div><div class="d">采购量越大单位成本越低。分散采购会牺牲规模效益，是"有选择没管理"的直接后果。</div></div><div class="term"><div class="t">总拥有成本(TCO)</div><div class="d">不止采购单价，还包括使用、维护、库存、质量损失等全生命周期的总成本。</div></div></div>
   
   <div class="book-toc"><h3>📖 完整目录</h3><ol><li style="font-weight:600;color:var(--ink);margin-top:8px">第一篇 供应链的全局观</li><li style="margin-left:16px;list-style-type:circle">第1章 多角度透视供应链（三流集成、日本起源、垂直整合解体）</li><li style="margin-left:16px;list-style-type:circle">第2章 供应链的本质是协作（强相关指标、集成供应链）</li><li style="margin-left:16px;list-style-type:circle">第3章 供应链与产品/业务的战略匹配（经济型/响应型、推拉结合、模块化）</li><li style="margin-left:16px;list-style-type:circle">第4章 供应链与设计的闭环集成（IPD、设计优化、供应商早期介入）</li><li style="margin-left:16px;list-style-type:circle">第5章 供应链与营销的闭环集成（S&OP、闭环交付信息化）</li><li style="margin-left:16px;list-style-type:circle">第6章 供应链的牛鞭效应（四成因及应对）</li><li style="margin-left:16px;list-style-type:circle">第7章 管理复杂的供应链（汽车行业、小批量行业）</li><li style="margin-left:16px;list-style-type:circle">第8章 供应链的全球化和反全球化</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第二篇 管好供应商，才能管好供应链</li><li style="margin-left:16px;list-style-type:circle">第9章 供应商管理的三大误区（多权分立、采购额分散、有选择没管理）</li><li style="margin-left:16px;list-style-type:circle">第10章 供应商分类：区别对待重点管理（五分法、2016年小米案例）</li><li style="margin-left:16px;list-style-type:circle">第11章 供应商评估：识别短板敦促改进（财务/质量/生产/物料评估）</li><li style="margin-left:16px;list-style-type:circle">第12章 供应商选择：制定合格供应商清单（一品一点、规模效益）</li><li style="margin-left:16px;list-style-type:circle">第13章 供应商绩效管理：QCDSTAP七大指标（成本/质量/交付/服务/技术/资产/流程）</li><li style="margin-left:16px;list-style-type:circle">第14章 供应商集成：最高层次（早期介入、降本三台阶）</li><li style="margin-left:16px;list-style-type:circle">第15章 关键下级供应商的管理（客户指定供应商、本田苹果案例）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第三篇 从"小采购"到"大采购"，影响总成本</li><li style="margin-left:16px;list-style-type:circle">第16章 从"小采购"到"大采购"（五阶段模型、猎人vs牧人）</li><li style="margin-left:16px;list-style-type:circle">第17章 "大采购"的组织建设（两层分离、跨职能团队、人才先行）</li><li style="margin-left:16px;list-style-type:circle">第18章 采购的集中与分散（集中采购、混合采购陷阱、变革管理）</li></ol></div>
   

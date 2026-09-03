@@ -141,6 +141,36 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 .book-toc li { margin:2px 0 }
 .highlight-box { background:var(--bk1-light); border-left:4px solid var(--bk1); padding:14px 18px; border-radius:0 12px 12px 0; margin:16px 0; font-size:14px; color:var(--ink); line-height:1.8 }
 
+/* 核心知识详解 */
+.knowledge-block { margin:0 0 8px }
+.book-main h3 { font-size:15.5px; font-weight:700; color:var(--ink); margin:22px 0 6px; display:flex; align-items:center; gap:8px }
+.book-main h3::before { content:""; width:4px; height:16px; background:var(--bk1); border-radius:3px; display:inline-block }
+.knowledge-block h4 { font-size:14px; font-weight:700; color:var(--bk1); margin:14px 0 4px }
+.knowledge-block ul { margin:6px 0 10px; padding-left:20px; font-size:14.5px; color:var(--ink-2); line-height:1.8 }
+.knowledge-block li { margin:4px 0 }
+.knowledge-block li strong { color:var(--ink) }
+
+/* STAR 法则案例 */
+.star-case { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px 12px; margin:16px 0; box-shadow:var(--shadow) }
+.star-case .sc-name { font-size:15px; font-weight:800; color:var(--ink); margin:0 0 10px; display:flex; align-items:center; gap:8px; line-height:1.5 }
+.star-case .sc-name::before { content:"★"; color:var(--amber); font-size:16px }
+.star-step { border-left:4px solid; padding:10px 14px; margin:10px 0; border-radius:0 12px 12px 0; font-size:14px; line-height:1.7; color:var(--ink-2) }
+.star-step .sl { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; color:#fff; font-size:12px; font-weight:800; margin-right:8px; vertical-align:middle }
+.star-step b { color:var(--ink); font-weight:700; letter-spacing:.3px }
+.star-step p { margin:4px 0 0; font-size:14px; color:var(--ink-2) }
+.star-step.s { border-color:var(--bk2); background:var(--bk2-light) }
+.star-step.s .sl { background:var(--bk2) }
+.star-step.s b { color:var(--bk2) }
+.star-step.t { border-color:var(--amber); background:var(--amber-soft) }
+.star-step.t .sl { background:var(--amber) }
+.star-step.t b { color:var(--amber) }
+.star-step.a { border-color:var(--tip); background:var(--tip-soft) }
+.star-step.a .sl { background:var(--tip) }
+.star-step.a b { color:var(--tip) }
+.star-step.r { border-color:var(--indigo); background:var(--indigo-soft) }
+.star-step.r .sl { background:var(--indigo) }
+.star-step.r b { color:var(--indigo) }
+
 </style>
 </head>
 <body>
@@ -163,6 +193,13 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 <div class="book-main">
   <h2>本书概述</h2>
   <div class="highlight-box"><strong>最具特色的实战案例</strong><br>① X公司6年营收增3倍的完整变革（三阶段：系统建设→计划执行分离→供应链渗透前端）；② 飞利浦催货三优先级体系（95%由计划满足，5%由执行弥补）；③ 跨国设备商三管齐下缩短周转周期（六周计划+模块化+流程优化）；④ 某制造商库存四分法发现1亿元风险库存。</div><div class="highlight-box"><strong>核心理念</strong><br>"所有的预测都是错的，但错多错少可不一样"；"预测不是衡量准确性，而是偏差率——一路飞去，一路纠偏"；"所有的短缺，最后都是以过剩收尾"；"计划是供应链的第一推动力"。</div><div class="highlight-box"><strong>本书独特价值</strong><br>唯一一本系统阐述供应链执行层的专著。第三道防线内容——催货管理、ERP/MRP运作机制、电子商务供应商连接——是其他五本书都未深入覆盖的领域。</div>
+  
+  <h2>📚 核心知识详解</h2><div class="knowledge-block"><h3>一、第一道防线：需求预测——从数据开始，由判断结束</h3><p>预测是供应链的第一推动力，但"所有的预测都是错的"。要做的不是追求预测 100% 准，而是让预测错得少一点、纠偏快一点。</p><ul><li>预测的本质不是算准，而是管理偏差率："一路飞去，一路纠偏"。</li><li>流程上"从数据开始，由判断结束"：先让系统给出基线，再让懂业务的人调整。</li><li>一线销售做不好预测是常态——要设计机制（预测与销售目标分离）而不是怪人。</li></ul></div><div class="knowledge-block"><h3>二、第二道防线：库存计划——安全库存与库存四分法</h3><p>预测不可能全准，所以要用安全库存来兜底。但安全库存不是拍脑袋，而是量化不确定性后算出来的。</p><ul><li>安全库存三步法：量化不确定性 → 量化目标服务水平 → 代入公式计算。</li><li>库存四分法：把库存分成周转、安全、过剩、风险四类，区别对待、有的放矢。</li><li>长尾产品是库存计划的终极挑战：用量少但种类多，需要专门的库存策略。</li></ul></div><div class="knowledge-block"><h3>三、第三道防线：供应链执行——催货是有学问的</h3><p>前面两道防线被冲垮后，最后靠执行来兜底。执行不是"死命催"，而是有优先级、有方法地驱动供应商响应。</p><ul><li>催货三优先级体系：把催货需求分优先级，95% 由计划满足，只有 5% 靠执行层弥补。</li><li>把自己做成大客户：用稳定的量、清晰的计划换取供应商的优先响应。</li><li>ERP/MRP 跑不起来，根子往往是主数据不准、计划逻辑没理顺，而非软件本身。</li></ul></div>
+  
+  <h2>🎯 经典案例拆解（STAR 法则）</h2><div class="star-case"><div class="sc-name">X 公司：6 年营收增 3 倍的计划变革</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>X 公司业务快速扩张但供应链计划混乱，交付与库存问题频发。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>支撑营收高速增长的同时，把计划体系建起来、把库存和交付管住。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>分三阶段推进：先建系统 → 再实现计划与执行分离 → 最后让供应链渗透前端，全程配套组织与流程变革。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>营收 6 年增长 3 倍，供应链从"救火队"变成"增长引擎"，成为完整的计划变革样板。</p></div></div><div class="star-case"><div class="sc-name">飞利浦：催货的三优先级体系</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>飞利浦供应商众多、催货需求庞杂，执行层疲于奔命。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>把有限的催货资源用在刀刃上，避免"什么都急、什么都催不动"。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>建立三优先级体系，按紧急程度和影响分级催货；绝大多数需求靠计划前置满足，只有极少数才走执行层催货。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>催货变得有序高效，执行层从"救火"转向"例外管理"，交付稳定性显著提升。</p></div></div><div class="star-case"><div class="sc-name">某制造商：库存四分法挖出 1 亿风险库存</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>某制造商库存居高不下，但说不清哪些库存是合理的、哪些是问题库存。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>把库存结构看清楚，找到真正该削减的那部分。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>用库存四分法把库存按周转/安全/过剩/风险分类核算，逐类分析成因与处置方案。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>一次性识别出 1 亿元风险库存，为后续削减提供了清晰的优先级和抓手。</p></div></div>
+  
+  <h2>🔤 专有名词解释</h2>
+<div class="glossary"><div class="term"><div class="t">三道防线</div><div class="d">需求预测（第一道）、安全库存（第二道）、供应链执行（第三道），层层兜底，前道垮后道必垮。</div></div><div class="term"><div class="t">需求预测</div><div class="d">对未来需求的判断，是供应链计划的起点，衡量标准是偏差率而非"准不准"。</div></div><div class="term"><div class="t">安全库存</div><div class="d">为应对需求与供应的不确定性而额外持有的库存，是预测之外的缓冲。</div></div><div class="term"><div class="t">库存四分法</div><div class="d">把库存分为周转、安全、过剩、风险四类，分类管理、精准处置。</div></div><div class="term"><div class="t">VMI</div><div class="d">供应商管理库存：供应商根据共享的销售/库存数据自主补货，降低双方库存。</div></div><div class="term"><div class="t">服务水平</div><div class="d">在客户需要时能供货的概率，是设定安全库存的关键目标参数。</div></div><div class="term"><div class="t">长尾产品</div><div class="d">种类多、单个需求量小的产品，库存计划的难点在于"少量多样"如何备货。</div></div></div>
   
   <div class="book-toc"><h3>📖 完整目录</h3><ol><li style="font-weight:600;color:var(--ink);margin-top:8px">引言 供应链的三道防线</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第一篇 供应链的第一道防线：需求预测</li><li style="margin-left:16px;list-style-type:circle">需求预测是"从数据开始，由判断结束"</li><li style="margin-left:16px;list-style-type:circle">销售vs计划谁的预测更准（短尾/中尾/长尾产品分析）</li><li style="margin-left:16px;list-style-type:circle">一线销售为什么做不好需求预测</li><li style="margin-left:16px;list-style-type:circle">快消品公司组织设计案例、X公司完整变革案例</li><li style="margin-left:16px;list-style-type:circle">长周期物料预测专题、需求预测的绩效考核</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第二篇 供应链的第二道防线：库存计划</li><li style="margin-left:16px;list-style-type:circle">安全库存设置三步法（量化不确定性→量化服务水平→计算）</li><li style="margin-left:16px;list-style-type:circle">库存四分法管控风险（周转/安全/过剩/风险库存）</li><li style="margin-left:16px;list-style-type:circle">长尾产品库存计划、VMI全维度分析</li><li style="margin-left:16px;list-style-type:circle">高库存高服务水平是怎么来的（"两高"企业机制分析）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第三篇 供应链的第三道防线：供应链执行</li><li style="margin-left:16px;list-style-type:circle">催货是有学问的（三优先级体系+飞利浦案例）</li><li style="margin-left:16px;list-style-type:circle">把自己做成大客户驱动供应商响应</li><li style="margin-left:16px;list-style-type:circle">日本供应商供不了货案例</li><li style="margin-left:16px;list-style-type:circle">三管齐下缩短周转周期（跨国设备商完整案例）</li><li style="margin-left:16px;list-style-type:circle">ERP与信息系统（MRP为什么跑不起来）</li></ol></div>
   

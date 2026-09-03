@@ -141,6 +141,36 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 .book-toc li { margin:2px 0 }
 .highlight-box { background:var(--bk1-light); border-left:4px solid var(--bk1); padding:14px 18px; border-radius:0 12px 12px 0; margin:16px 0; font-size:14px; color:var(--ink); line-height:1.8 }
 
+/* 核心知识详解 */
+.knowledge-block { margin:0 0 8px }
+.book-main h3 { font-size:15.5px; font-weight:700; color:var(--ink); margin:22px 0 6px; display:flex; align-items:center; gap:8px }
+.book-main h3::before { content:""; width:4px; height:16px; background:var(--bk1); border-radius:3px; display:inline-block }
+.knowledge-block h4 { font-size:14px; font-weight:700; color:var(--bk1); margin:14px 0 4px }
+.knowledge-block ul { margin:6px 0 10px; padding-left:20px; font-size:14.5px; color:var(--ink-2); line-height:1.8 }
+.knowledge-block li { margin:4px 0 }
+.knowledge-block li strong { color:var(--ink) }
+
+/* STAR 法则案例 */
+.star-case { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px 12px; margin:16px 0; box-shadow:var(--shadow) }
+.star-case .sc-name { font-size:15px; font-weight:800; color:var(--ink); margin:0 0 10px; display:flex; align-items:center; gap:8px; line-height:1.5 }
+.star-case .sc-name::before { content:"★"; color:var(--amber); font-size:16px }
+.star-step { border-left:4px solid; padding:10px 14px; margin:10px 0; border-radius:0 12px 12px 0; font-size:14px; line-height:1.7; color:var(--ink-2) }
+.star-step .sl { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; color:#fff; font-size:12px; font-weight:800; margin-right:8px; vertical-align:middle }
+.star-step b { color:var(--ink); font-weight:700; letter-spacing:.3px }
+.star-step p { margin:4px 0 0; font-size:14px; color:var(--ink-2) }
+.star-step.s { border-color:var(--bk2); background:var(--bk2-light) }
+.star-step.s .sl { background:var(--bk2) }
+.star-step.s b { color:var(--bk2) }
+.star-step.t { border-color:var(--amber); background:var(--amber-soft) }
+.star-step.t .sl { background:var(--amber) }
+.star-step.t b { color:var(--amber) }
+.star-step.a { border-color:var(--tip); background:var(--tip-soft) }
+.star-step.a .sl { background:var(--tip) }
+.star-step.a b { color:var(--tip) }
+.star-step.r { border-color:var(--indigo); background:var(--indigo-soft) }
+.star-step.r .sl { background:var(--indigo) }
+.star-step.r b { color:var(--indigo) }
+
 </style>
 </head>
 <body>
@@ -163,6 +193,13 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 <div class="book-main">
   <h2>本书概述</h2>
   <div class="highlight-box"><strong>核心洞察</strong><br>"最差的供应商就是自家的生产线"——内部供应商在封闭环境里没动力也没能力持续改进。"如动物一旦被驯化了，与野生动物相比整体能力就会下降。"</div><div class="highlight-box"><strong>外包关键原则</strong><br>"做，要从不做开始"——不是"哪些东西该外包"，而是"哪些东西该自己做"。核心竞争力三个维度：延展性（能否进入更多市场）、有用性（客户愿不愿意买单）、独特性（能否模仿）。京东物流满足前两项但不满足第三项——说明不是核心竞争力。</div><div class="highlight-box"><strong>经典案例对比</strong><br>泛林研发（全面外包，净利率21.8%，股价384美元）vs 应用材料（传统模式，股价64美元）；AMD剥离芯片制造（股价→92美元）vs 英特尔固守制造（7纳米掉队，股价跌16%）。</div>
+  
+  <h2>📚 核心知识详解</h2><div class="knowledge-block"><h3>一、为什么重资产难逃劣质化</h3><p>垂直整合看起来"什么都能自己掌控"，但长期看有两大结构性缺陷，几乎注定让内部能力走向劣质化。</p><ul><li>需求单一、规模效益低：内部供应的需求只来自自家，摊不薄成本。</li><li>竞争不充分、能力劣质化：封闭环境里没动力也没能力持续改进——"最差的供应商就是自家的生产线"。</li><li>英特尔芯片制造落后台积电，就是垂直整合劣质化的典型例证。</li></ul></div><div class="knowledge-block"><h3>二、外包的三层境界</h3><p>外包不是"把活甩出去"这么简单，而是分三个层次递进：从低附加值的订单外包，到产品外包，再到结构性外包。</p><ul><li>订单外包：只把生产订单交给别人，最浅层。</li><li>产品外包：把整个产品的设计与制造交给专业供应商。</li><li>结构性外包：把整条能力链剥离出去，企业只保留最核心的部分，是最彻底、收益最大的层次。</li></ul></div><div class="knowledge-block"><h3>三、外包前先想清楚：什么是核心竞争力</h3><p>"做，要从不做开始。"不是问"哪些该外包"，而是问"哪些必须自己做"。判断标准是核心竞争力三问。</p><ul><li>延展性：这项能力能否帮企业进入更多市场？</li><li>有用性：客户愿不愿意为它买单？</li><li>独特性：别人能不能轻易模仿？三者缺一不可，才是核心竞争力。</li><li>警惕代工变对手：华硕给戴尔代工，最终自己下场做品牌，说明外包方与被外包方的边界会漂移。</li></ul></div>
+  
+  <h2>🎯 经典案例拆解（STAR 法则）</h2><div class="star-case"><div class="sc-name">泛林研发 vs 应用材料：全面外包的胜利</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>同处半导体设备行业，泛林研发与应用材料采用了截然不同的资产策略。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>在重资产、高波动的行业里，谁能保持更高的利润率和股东回报。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>泛林研发把制造等非核心环节全面外包，聚焦研发与核心能力；应用材料坚持传统重资产一体化模式。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>泛林净利率达 21.8%、股价 384 美元，远超应用材料的 64 美元——用数据证明轻资产的价值。</p></div></div><div class="star-case"><div class="sc-name">IBM：倒贴 15 亿也要剥离芯片制造</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>IBM 芯片制造业务持续亏损，成为拖累整体业绩的重资产包袱。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>甩掉亏损的制造环节，把资源集中到更高价值的业务上。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>IBM 不惜倒贴 15 亿美元，把芯片制造业务剥离给专业代工厂。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>摆脱重资产拖累，聚焦软件与服务等高价值领域，实现战略转身。</p></div></div><div class="star-case"><div class="sc-name">华硕与戴尔：代工企业变竞争对手</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>华硕长期为戴尔等品牌代工，熟悉设计与制造全流程。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>戴尔需要在借力代工与防止养大竞争对手之间找到平衡。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>戴尔继续外包制造，华硕在代工中积累能力后，顺势推出自有品牌进入市场。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>华硕从代工厂变成戴尔的直接对手。教训：外包会复制能力，边界必须用设计、品牌、生态来守住。</p></div></div>
+  
+  <h2>🔤 专有名词解释</h2>
+<div class="glossary"><div class="term"><div class="t">垂直整合</div><div class="d">企业自己包办上下游多个环节，什么都能自己造，但容易陷入重资产与能力劣质化。</div></div><div class="term"><div class="t">外包三层</div><div class="d">订单外包 → 产品外包 → 结构性外包，由浅入深的三种外包层次。</div></div><div class="term"><div class="t">结构性外包</div><div class="d">把整条能力链剥离给专业供应商，企业只保留核心能力，是外包的最高层次。</div></div><div class="term"><div class="t">核心竞争力三维度</div><div class="d">延展性、有用性、独特性三问，用来判断一项能力是否值得自己做。</div></div><div class="term"><div class="t">模块化</div><div class="d">把产品拆成标准化模块，为外包提供清晰接口，是外包得以实现的技术前提。</div></div><div class="term"><div class="t">供应商集成</div><div class="d">与供应商深度协同，让外部供应商像内部部门一样参与设计与交付。</div></div></div>
   
   <div class="book-toc"><h3>📖 完整目录</h3><ol><li style="font-weight:600;color:var(--ink);margin-top:8px">第一章 垂直整合��，重资产难逃劣质化的宿命</li><li style="margin-left:16px;list-style-type:circle">两大结构性缺陷：需求单一规模效益低 + 竞争不充分能力劣质化</li><li style="margin-left:16px;list-style-type:circle">英特尔芯片制造落后台积电案例</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第二章 外包：剥离重资产，依赖专业供应商</li><li style="margin-left:16px;list-style-type:circle">订单外包→产品外包→结构性外包（三层框架）</li><li style="margin-left:16px;list-style-type:circle">京东物流轻-重-轻轮回、IBM倒贴15亿剥离芯片制造</li><li style="margin-left:16px;list-style-type:circle">海尔"去制造化"、泛林研发全面外包（股价10→384美元）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第三章 外包的核心能力建设</li><li style="margin-left:16px;list-style-type:circle">核心竞争力三维度判定（延展性/有用性/独特性）</li><li style="margin-left:16px;list-style-type:circle">模块化与外包的关系模型</li><li style="margin-left:16px;list-style-type:circle">华硕与戴尔——代工企业变竞争对手的教训</li><li style="font-weight:600;color:var(--ink);margin-top:8px">附录 改善运营效率，继续重资产的良性存在</li></ol></div>
   

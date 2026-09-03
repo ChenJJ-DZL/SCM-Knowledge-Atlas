@@ -141,6 +141,36 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 .book-toc li { margin:2px 0 }
 .highlight-box { background:var(--bk1-light); border-left:4px solid var(--bk1); padding:14px 18px; border-radius:0 12px 12px 0; margin:16px 0; font-size:14px; color:var(--ink); line-height:1.8 }
 
+/* 核心知识详解 */
+.knowledge-block { margin:0 0 8px }
+.book-main h3 { font-size:15.5px; font-weight:700; color:var(--ink); margin:22px 0 6px; display:flex; align-items:center; gap:8px }
+.book-main h3::before { content:""; width:4px; height:16px; background:var(--bk1); border-radius:3px; display:inline-block }
+.knowledge-block h4 { font-size:14px; font-weight:700; color:var(--bk1); margin:14px 0 4px }
+.knowledge-block ul { margin:6px 0 10px; padding-left:20px; font-size:14.5px; color:var(--ink-2); line-height:1.8 }
+.knowledge-block li { margin:4px 0 }
+.knowledge-block li strong { color:var(--ink) }
+
+/* STAR 法则案例 */
+.star-case { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px 12px; margin:16px 0; box-shadow:var(--shadow) }
+.star-case .sc-name { font-size:15px; font-weight:800; color:var(--ink); margin:0 0 10px; display:flex; align-items:center; gap:8px; line-height:1.5 }
+.star-case .sc-name::before { content:"★"; color:var(--amber); font-size:16px }
+.star-step { border-left:4px solid; padding:10px 14px; margin:10px 0; border-radius:0 12px 12px 0; font-size:14px; line-height:1.7; color:var(--ink-2) }
+.star-step .sl { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; color:#fff; font-size:12px; font-weight:800; margin-right:8px; vertical-align:middle }
+.star-step b { color:var(--ink); font-weight:700; letter-spacing:.3px }
+.star-step p { margin:4px 0 0; font-size:14px; color:var(--ink-2) }
+.star-step.s { border-color:var(--bk2); background:var(--bk2-light) }
+.star-step.s .sl { background:var(--bk2) }
+.star-step.s b { color:var(--bk2) }
+.star-step.t { border-color:var(--amber); background:var(--amber-soft) }
+.star-step.t .sl { background:var(--amber) }
+.star-step.t b { color:var(--amber) }
+.star-step.a { border-color:var(--tip); background:var(--tip-soft) }
+.star-step.a .sl { background:var(--tip) }
+.star-step.a b { color:var(--tip) }
+.star-step.r { border-color:var(--indigo); background:var(--indigo-soft) }
+.star-step.r .sl { background:var(--indigo) }
+.star-step.r b { color:var(--indigo) }
+
 </style>
 </head>
 <body>
@@ -163,6 +193,13 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 <div class="book-main">
   <h2>本书概述</h2>
   <div class="highlight-box"><strong>职业三阶段</strong><br>初入职场——聚焦"如何解决"具体问题，多干多听多问，"你是你自己最好的广告"；平台期——成为工匠但陷入迷茫，"你缺的不是经验"；专家阶段——实现范式转移，既知道怎么解决也能解决不愿解决的问题。</div><div class="highlight-box"><strong>关键建议</strong><br>"宁做钝才，不做歪才"——不急功近利；"耐得住寂寞"——22岁时大家起点差不多，差异来自持续积累；"做供应链管理的三语人才"——专业语言+业务语言+数据语言；"精心挑选你的敌人"——对标优秀的人。</div><div class="highlight-box"><strong>实用资源</strong><br>职业认证路径推荐、供应链管理核心书单、大公司vs小公司的选择判断。"学历替代不了经历，经历也替代不了学历。想逃避，创业不是归宿。"</div>
+  
+  <h2>📚 核心知识详解</h2><div class="knowledge-block"><h3>一、初入职场：打好基础，进入快车道</h3><p>职业生涯的头几年决定快慢车道。这一阶段的关键不是"选对岗位"，而是把基本功打扎实、把习惯养好。</p><ul><li>聚焦"如何解决"：多干、多听、多问，用具体交付积累口碑——"你是你自己最好的广告"。</li><li>大公司与小公司不同：大公司靠流程驱动，学规范和系统；小公司靠人驱动，练综合和速度。</li><li>做"三语人才"：专业语言 + 业务语言 + 数据语言，三者都能说，才走得远。</li></ul></div><div class="knowledge-block"><h3>二、平台期：日子不好也不坏，怎么办</h3><p>工作八到十年后，很多人陷入"不好也不坏"的平台期。要突破，先搞清楚自己缺的是经验、能力，还是意愿。</p><ul><li>自我诊断三问：你缺的是经验（见得少）、能力（做不到）、还是意愿（不想做）？对症下药。</li><li>"不作为也是风险"：在变化加速的环境里，原地不动本身就是一种倒退。</li><li>拒绝做"差不多先生"：追求卓越和"歪才"式急功近利，是两条截然不同的路。</li></ul></div><div class="knowledge-block"><h3>三、成为专家：实现范式转移</h3><p>从"有知"到"有知"的跨越，靠的不是积累更多技巧，而是范式转移——改变看待问题的方法论和基本假设。</p><ul><li>范式转移的基础：改变方法论和基本假设，而非在旧框架里更努力。</li><li>从"如何解决"到能解决"不愿解决"的问题：专家不只是会做，而是能让别人也做对。</li><li>后记的终极选择：要么成为领袖，要么成为专家——两条路都要耐得住寂寞。</li></ul></div>
+  
+  <h2>🎯 经典案例拆解（STAR 法则）</h2><div class="star-case"><div class="sc-name">平台期突围：一个供应链经理的八年之痒</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>一位供应链经理工作八年，职位和薪资都"不好也不坏"，陷入迷茫，不确定该继续深耕还是转型。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>判断自己缺的到底是经验、能力还是意愿，找到突破方向。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>按"三问"诊断：发现自己缺的不是能力，而是意愿和视野；于是主动跨出舒适区，主动对标行业标杆（"精心挑选你的敌人"），补齐数据语言短板。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>从"差不多先生"转向工匠，最终实现范式转移，进入专家行列。</p></div></div><div class="star-case"><div class="sc-name">大公司还是小公司：一次职业选择</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>一位应届供应链毕业生同时拿到大公司和小公司的 offer，纠结该去哪。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>在"流程规范的大平台"和"机会多的小舞台"之间做出符合自身阶段的选择。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>用"流程驱动 vs 人员驱动"框架评估：自己当前更需要系统方法论和职业背书，于是先选大公司打基础。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>在大公司建立系统的专业框架和行业视野，为日后进入快车道或创业打下扎实根基。</p></div></div>
+  
+  <h2>🔤 专有名词解释</h2>
+<div class="glossary"><div class="term"><div class="t">三语人才</div><div class="d">同时掌握专业语言、业务语言、数据语言的复合型人才，是供应链人的核心竞争力。</div></div><div class="term"><div class="t">范式转移</div><div class="d">改变看问题的方法论和基本假设，从而获得质的突破，而非量的积累。</div></div><div class="term"><div class="t">高德纳25强</div><div class="d">高德纳(Gartner)评选的全球供应链最佳实践企业榜单，是学习的标杆。</div></div><div class="term"><div class="t">CPIM/CSCP</div><div class="d">供应链与库存管理领域的国际认证，是职业晋升的重要背书。</div></div><div class="term"><div class="t">流程驱动 vs 人员驱动</div><div class="d">大公司靠流程和系统运转，小公司靠关键人物推动，选择时看自己更适合哪种。</div></div></div>
   
   <div class="book-toc"><h3>📖 完整目录</h3><ol><li style="font-weight:600;color:var(--ink);margin-top:8px">引言 供应链管理：认识这个领域（从"三个三"谈起）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第一章 初入供应链：打好基础，进入快车道</li><li style="margin-left:16px;list-style-type:circle">大公司与小公司的不同（流程驱动vs人员驱动）</li><li style="margin-left:16px;list-style-type:circle">供应链管理最好的公司（高德纳全球供应链25强）</li><li style="margin-left:16px;list-style-type:circle">供应链管理的职业机会与认证（C.P.M./CPIM/CSCP）</li><li style="margin-left:16px;list-style-type:circle">做供应链管理的"三语人才"</li><li style="margin-left:16px;list-style-type:circle">影响你的那几个人：精心挑选你的"敌人"</li><li style="margin-left:16px;list-style-type:circle">追求卓越，拒绝做差不多先生</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第二章 工作了八年或十年后，日子不好也不坏</li><li style="margin-left:16px;list-style-type:circle">你缺的不是经验、缺能力还是缺意愿</li><li style="margin-left:16px;list-style-type:circle">跨出一步：不作为也是风险</li><li style="margin-left:16px;list-style-type:circle">维德必危：不做人人都喜欢的人</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第三章 成为专家：实现范式转移，从有知到有知</li><li style="margin-left:16px;list-style-type:circle">范式转移的基础：改变方法论和基本假设</li><li style="margin-left:16px;list-style-type:circle">从"如何解决"到能够解决"不愿解决"的问题</li><li style="font-weight:600;color:var(--ink);margin-top:8px">后记 要么成为领袖，要么成为专家</li></ol></div>
   

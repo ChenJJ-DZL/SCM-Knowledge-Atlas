@@ -141,6 +141,36 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 .book-toc li { margin:2px 0 }
 .highlight-box { background:var(--bk1-light); border-left:4px solid var(--bk1); padding:14px 18px; border-radius:0 12px 12px 0; margin:16px 0; font-size:14px; color:var(--ink); line-height:1.8 }
 
+/* 核心知识详解 */
+.knowledge-block { margin:0 0 8px }
+.book-main h3 { font-size:15.5px; font-weight:700; color:var(--ink); margin:22px 0 6px; display:flex; align-items:center; gap:8px }
+.book-main h3::before { content:""; width:4px; height:16px; background:var(--bk1); border-radius:3px; display:inline-block }
+.knowledge-block h4 { font-size:14px; font-weight:700; color:var(--bk1); margin:14px 0 4px }
+.knowledge-block ul { margin:6px 0 10px; padding-left:20px; font-size:14.5px; color:var(--ink-2); line-height:1.8 }
+.knowledge-block li { margin:4px 0 }
+.knowledge-block li strong { color:var(--ink) }
+
+/* STAR 法则案例 */
+.star-case { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px 12px; margin:16px 0; box-shadow:var(--shadow) }
+.star-case .sc-name { font-size:15px; font-weight:800; color:var(--ink); margin:0 0 10px; display:flex; align-items:center; gap:8px; line-height:1.5 }
+.star-case .sc-name::before { content:"★"; color:var(--amber); font-size:16px }
+.star-step { border-left:4px solid; padding:10px 14px; margin:10px 0; border-radius:0 12px 12px 0; font-size:14px; line-height:1.7; color:var(--ink-2) }
+.star-step .sl { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; color:#fff; font-size:12px; font-weight:800; margin-right:8px; vertical-align:middle }
+.star-step b { color:var(--ink); font-weight:700; letter-spacing:.3px }
+.star-step p { margin:4px 0 0; font-size:14px; color:var(--ink-2) }
+.star-step.s { border-color:var(--bk2); background:var(--bk2-light) }
+.star-step.s .sl { background:var(--bk2) }
+.star-step.s b { color:var(--bk2) }
+.star-step.t { border-color:var(--amber); background:var(--amber-soft) }
+.star-step.t .sl { background:var(--amber) }
+.star-step.t b { color:var(--amber) }
+.star-step.a { border-color:var(--tip); background:var(--tip-soft) }
+.star-step.a .sl { background:var(--tip) }
+.star-step.a b { color:var(--tip) }
+.star-step.r { border-color:var(--indigo); background:var(--indigo-soft) }
+.star-step.r .sl { background:var(--indigo) }
+.star-step.r b { color:var(--indigo) }
+
 </style>
 </head>
 <body>
@@ -163,6 +193,13 @@ mark.search-hit-current{background:var(--amber);color:#fff;border-radius:3px;pad
 <div class="book-main">
   <h2>本书概述</h2>
   <div class="highlight-box"><strong>"三管齐下"框架</strong><br>前端防杂——降低产品复杂度驱动的成本（精简产品线、推动标准化系列化模块化）；后端减重——降低重资产带来的固定成本（聚焦核心竞争力、依靠专业供应商）；中间治乱——降低库存和运营成本（有效对接销售与运营、提高计划准确度）。三者交互影响、盘根错节。</div><div class="highlight-box"><strong>"增长陷阱"深入剖析</strong><br>许多企业生意越做越多、钱越赚越少，利润都变成了库存和产能。核心逻辑：高增长+高成本→规模膨胀→营收增速放缓→成本无法成比例降低→利润率下滑。中国500强收入利润率仅4.24%，近1/4净资产回报率不如一年定期。</div><div class="highlight-box"><strong>关键名言</strong><br>"最糟糕的供应商就是自家的生产线"；"可以骑马打天下，但不能骑马治天下"；"公司大了，滴滴打车就不是解决方案"；"头顶磨盘——吃力不讨好"。</div>
+  
+  <h2>📚 核心知识详解</h2><div class="knowledge-block"><h3>一、前端防杂：向复杂度要成本</h3><p>高成本的第一大元凶是产品复杂度。产品线越杂、设计越不标准，成本、库存、交付问题就越难根治。治理复杂度要从三个层次下手。</p><ul><li>复杂度的三个层次：产品线复杂（SKU 太多）、设计复杂（零部件不通用）、流程/组织复杂（多头管理）。</li><li>标准化→系列化→模块化：先统一标准件，再归并成系列，最后用模块化组合出多样性，是复杂度治理的递进路径。</li><li>判断标准：产品"分得清就留下，分不清就砍掉"——不能创造差异化价值的 SKU 就该淘汰。</li></ul></div><div class="knowledge-block"><h3>二、后端减重：向重资产要效率</h3><p>很多企业习惯了"什么都自己造"，结果把现金流都砸进了厂房设备。重资产不是战略选择，而是供应链管理能力不足的替代品。</p><ul><li>重资产困境：需求单一导致规模效益低，封闭环境导致能力劣质化——"最差的供应商就是自家的生产线"。</li><li>供应商管理三大误区：小优化（局部最优）、轻选择重淘汰、过度竞争（把供应商逼到死）。</li><li>轻资产的必要条件：一流的供应商管理职能——选好、管好、集成好外部专业供应商。</li></ul></div><div class="knowledge-block"><h3>三、中间治乱：向库存要现金</h3><p>库存是利润的坟墓。高库存不是仓库的问题，而是计划不准、流程不畅的集中体现。治库存要"三管齐下"。</p><ul><li>库存三管齐下：缩短周转周期（快周转）、控制不确定性（稳）、改善计划（准），三者缺一不可。</li><li>需求计划"从数据出发、由判断结束"：先看历史数据，再让懂业务的人拍板纠偏。</li><li>计划是供应链的"保护伞"：计划准，下游的采购、生产、库存才不乱。</li></ul></div>
+  
+  <h2>🎯 经典案例拆解（STAR 法则）</h2><div class="star-case"><div class="sc-name">振华重工：重资产的增长陷阱</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>振华重工一度占据全球港口起重机大部分份额，靠大规模自建产能支撑高增长。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>在高速增长背后，如何避免利润被庞大的固定资产吞噬。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>企业持续扩张自有产能，重资产模式在行业景气下行、需求波动时显得格外笨重。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>陷入"增长陷阱"：规模越大、资产越重、利润越薄。教训：重资产是能力不足的替代品。</p></div></div><div class="star-case"><div class="sc-name">戴尔：用标准化控制复杂度</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>PC 行业 SKU 爆炸式增长，戴尔面临产品线复杂带来的成本与库存压力。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>在满足客户多样化的同时，控制产品与零部件的复杂度。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>戴尔通过直销模式 + 标准化零部件 + 按订单生产，把复杂度关进笼子里，同时保持零库存。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>一度登顶全球 PC 第一，证明"用流程和标准化控制复杂度"是高利润的关键。</p></div></div><div class="star-case"><div class="sc-name">大众汽车：标准化→系列化→模块化</div><div class="star-step s"><span class="sl">S</span><b>情境 Situation</b><p>大众旗下品牌和车型众多，零部件与平台各自为政，成本居高不下。</p></div><div class="star-step t"><span class="sl">T</span><b>任务 Task</b><p>在保留多品牌差异化的同时，大幅摊薄研发与制造成本。</p></div><div class="star-step a"><span class="sl">A</span><b>行动 Action</b><p>推进平台化战略（如 MQB 模块化平台），让不同车型共享底盘、动力总成等标准模块。</p></div><div class="star-step r"><span class="sl">R</span><b>结果 Result</b><p>大幅降低单车成本、缩短新车开发周期，成为汽车行业模块化的标杆。</p></div></div>
+  
+  <h2>🔤 专有名词解释</h2>
+<div class="glossary"><div class="term"><div class="t">增长陷阱</div><div class="d">生意越做越多、钱越赚越少——营收增长但利润率下滑，利润都变成了库存和产能。</div></div><div class="term"><div class="t">产品复杂度</div><div class="d">产品线、设计、流程组织三个层面的复杂程度，是驱动成本和库存的隐形元凶。</div></div><div class="term"><div class="t">模块化</div><div class="d">把产品拆成可复用的标准模块，通过模块组合出多样性，兼顾成本与灵活。</div></div><div class="term"><div class="t">重资产</div><div class="d">企业自己大量投资厂房、设备、产线，固定成本高、灵活性差。</div></div><div class="term"><div class="t">轻资产</div><div class="d">把非核心环节外包给专业供应商，企业聚焦核心能力，降低固定资产投入。</div></div><div class="term"><div class="t">库存三管齐下</div><div class="d">同时缩短周转周期、控制不确定性、改善计划，三管齐下才能真正降库存。</div></div><div class="term"><div class="t">需求计划</div><div class="d">对未来的需求做判断，驱动采购、生产、库存安排，是供应链的引擎。</div></div></div>
   
   <div class="book-toc"><h3>📖 完整目录</h3><ol><li style="font-weight:600;color:var(--ink);margin-top:8px">引言 高速增长的盛宴渐趋结束，面临"增长陷阱"怎么办</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第一篇 前端防杂：强化产品管理和标准化设计，降低复杂度驱动的成本</li><li style="margin-left:16px;list-style-type:circle">产品复杂度的三个层次（产品线/设计/流程组织）</li><li style="margin-left:16px;list-style-type:circle">国内外案例：戴尔控制复杂度、乐柏美"分得清就留下"、高乐氏"好库存坏库存"</li><li style="margin-left:16px;list-style-type:circle">标准化→系列化→模块化（大众汽车三阶段递进）</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第二篇 后端减重：提高供应商管理能力，走轻资产运作之路</li><li style="margin-left:16px;list-style-type:circle">重资产运作困境（振华重工/比亚迪案例）</li><li style="margin-left:16px;list-style-type:circle">供应商管理三大误区（小优化/轻选择重淘汰/过度竞争）</li><li style="margin-left:16px;list-style-type:circle">轻资产必要条件：一流的供应商管理职能</li><li style="font-weight:600;color:var(--ink);margin-top:8px">第三篇 中间治乱：改善供应链计划，控制库存，有效平衡需求与供应</li><li style="margin-left:16px;list-style-type:circle">库存三管齐下（缩短周转周期/控制不确定性/改善计划）</li><li style="margin-left:16px;list-style-type:circle">需求计划：从数据出发，由判断结束</li><li style="margin-left:16px;list-style-type:circle">供应链指标体系：计划是"保护伞"</li></ol></div>
   
